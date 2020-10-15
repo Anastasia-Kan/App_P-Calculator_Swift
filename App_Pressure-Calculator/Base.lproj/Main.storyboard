@@ -258,6 +258,9 @@ according to Datchi et al., 2007</string>
                                 <state key="normal" title="Calculate Pressure">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="calculateP:" destination="pN9-rw-bsd" eventType="touchUpInside" id="HbH-4e-Hjs"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CdB-nC-7Am">
                                 <rect key="frame" x="244" y="586" width="150" height="60"/>
@@ -322,11 +325,17 @@ according to Datchi et al., 2007</string>
                     <navigationItem key="navigationItem" id="e2x-H1-Fw4"/>
                     <connections>
                         <outlet property="CalibrationBTN" destination="eaE-WS-gV1" id="Lpd-Mv-0Pq"/>
+                        <outlet property="calcP" destination="3Eb-RZ-3FZ" id="rUr-DJ-e74"/>
+                        <outlet property="gotRuby" destination="MLd-fw-1ab" id="4XR-SL-W3N"/>
+                        <outlet property="gotTemp" destination="MLd-fw-1ab" id="Z9i-xX-lLw"/>
+                        <outlet property="refRuby" destination="zet-6i-H8R" id="SHL-pp-oRT"/>
+                        <outlet property="refTemp" destination="vJV-Vm-pEh" id="bso-bx-ex8"/>
+                        <outlet property="resultP" destination="CdB-nC-7Am" id="r6b-er-50x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wKr-G0-2OT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-710" y="-493"/>
+            <point key="canvasLocation" x="-1604" y="-462"/>
         </scene>
     </scenes>
     <resources>

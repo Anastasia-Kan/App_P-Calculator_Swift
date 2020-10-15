@@ -8,20 +8,23 @@
 import UIKit
 
 class CellClass: UITableViewCell {
-    
-}
+    }
 
 class RubyVC: UIViewController {
-
+    // Presenting all the TextFields and Buttons
     
+    @IBOutlet weak var refRuby: UITextField!
+    @IBOutlet weak var refTemp: UITextField!
+    @IBOutlet weak var gotRuby: UITextField!
+    @IBOutlet weak var gotTemp: UITextField!
+    @IBOutlet weak var calcP: UIButton!
+    @IBOutlet weak var resultP: UITextField!
     @IBOutlet weak var CalibrationBTN: UIButton!
-    //@IBOutlet weak var CalibrationBTN: UIButton!
     
+    // Add variables and constants
     let transparentView = UIView()
     let tableView = UITableView()
-    
     var selectedButton = UIButton()
-    
     var dataSource = [String]()
     
     override func viewDidLoad() {
@@ -31,6 +34,7 @@ class RubyVC: UIViewController {
         tableView.register(CellClass.self, forCellReuseIdentifier: "Cell")
     }
     
+    // Selecting calibration
     func addTransparentView(frames: CGRect) {
         let window = UIApplication.shared.keyWindow
         transparentView.frame = window?.frame ?? self.view.frame
@@ -53,6 +57,7 @@ class RubyVC: UIViewController {
         }, completion: nil)
     }
     
+    // Selecting calibration (cont)
     @objc func removeTransparentView() {
         let frames = selectedButton.frame
         UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
@@ -61,26 +66,22 @@ class RubyVC: UIViewController {
         }, completion: nil)
     }
     
-    
+    // Selecting calibration (cont)
     @IBAction func SelectCalibration(_ sender: Any) {
         dataSource = ["Mao (1986) hydrostatic", "Mao (1986) non-hydrostatic", "Shen (2020)"]
         selectedButton = CalibrationBTN
         addTransparentView(frames: CalibrationBTN.frame)
     }
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func calculateP(_ sender: Any) {
+        
+        
+        
     }
-    */
 
 }
 
+// Selecting calibration (cont)
 extension RubyVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
