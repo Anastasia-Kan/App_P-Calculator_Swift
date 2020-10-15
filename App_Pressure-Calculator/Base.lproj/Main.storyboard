@@ -174,7 +174,7 @@ according to Datchi et al., 2007</string>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zet-6i-H8R">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zet-6i-H8R">
                                 <rect key="frame" x="254" y="161" width="140" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="nmo-Yr-L5D"/>
@@ -182,9 +182,9 @@ according to Datchi et al., 2007</string>
                                 </constraints>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pGF-TV-Mma">
+                            <textField opaque="NO" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pGF-TV-Mma">
                                 <rect key="frame" x="254" y="341" width="140" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="C77-34-vQ1"/>
@@ -192,7 +192,7 @@ according to Datchi et al., 2007</string>
                                 </constraints>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="at T =" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ob-rQ-qcT">
                                 <rect key="frame" x="114" y="241" width="70" height="60"/>
@@ -231,22 +231,22 @@ according to Datchi et al., 2007</string>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vJV-Vm-pEh">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vJV-Vm-pEh">
                                 <rect key="frame" x="204" y="241" width="140" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="y39-Qn-ofS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MLd-fw-1ab">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MLd-fw-1ab">
                                 <rect key="frame" x="204" y="421" width="140" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="cA6-sV-EM4"/>
                                     <constraint firstAttribute="width" constant="140" id="l3H-nB-Wwn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Eb-RZ-3FZ">
                                 <rect key="frame" x="20" y="506" width="374" height="40"/>
@@ -262,11 +262,10 @@ according to Datchi et al., 2007</string>
                                     <action selector="calculateP:" destination="pN9-rw-bsd" eventType="touchUpInside" id="HbH-4e-Hjs"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CdB-nC-7Am">
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CdB-nC-7Am">
                                 <rect key="frame" x="244" y="586" width="150" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="LOd-kD-miL"/>
-                                    <constraint firstAttribute="height" constant="60" id="PdA-9p-0I5"/>
+                                    <constraint firstAttribute="width" constant="150" id="AMT-XQ-gcn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -297,9 +296,13 @@ according to Datchi et al., 2007</string>
                             <constraint firstItem="zet-6i-H8R" firstAttribute="top" secondItem="LVT-ac-cVH" secondAttribute="bottom" constant="30" id="HwE-mL-ehF"/>
                             <constraint firstItem="pGF-TV-Mma" firstAttribute="top" secondItem="1tx-s1-xLZ" secondAttribute="bottom" constant="40" id="JOD-ZY-Rf2"/>
                             <constraint firstItem="eUI-jW-dpk" firstAttribute="leading" secondItem="6N6-3H-Mw4" secondAttribute="leading" constant="20" id="KmB-7l-SIT"/>
+                            <constraint firstItem="CdB-nC-7Am" firstAttribute="bottom" secondItem="eUI-jW-dpk" secondAttribute="bottom" id="Lrb-WJ-EC8"/>
+                            <constraint firstItem="CdB-nC-7Am" firstAttribute="top" secondItem="eUI-jW-dpk" secondAttribute="top" id="M5p-75-OzQ"/>
                             <constraint firstItem="6N6-3H-Mw4" firstAttribute="trailing" secondItem="pGF-TV-Mma" secondAttribute="trailing" constant="20" id="Qu0-ww-wyj"/>
+                            <constraint firstItem="CdB-nC-7Am" firstAttribute="trailing" secondItem="3Eb-RZ-3FZ" secondAttribute="trailing" id="RTd-oR-EPM"/>
                             <constraint firstItem="Xax-X0-BAH" firstAttribute="leading" secondItem="6N6-3H-Mw4" secondAttribute="leading" constant="20" id="T2I-zK-IhI"/>
                             <constraint firstItem="ZdY-RL-4hq" firstAttribute="leading" secondItem="MLd-fw-1ab" secondAttribute="trailing" constant="20" id="T2N-ni-uoP"/>
+                            <constraint firstItem="CdB-nC-7Am" firstAttribute="leading" secondItem="eUI-jW-dpk" secondAttribute="trailing" constant="20" id="Vgk-DZ-K7h"/>
                             <constraint firstItem="vJV-Vm-pEh" firstAttribute="width" secondItem="zet-6i-H8R" secondAttribute="width" id="WPi-bE-y57"/>
                             <constraint firstItem="DyD-mV-07C" firstAttribute="top" secondItem="LVT-ac-cVH" secondAttribute="bottom" constant="30" id="aEm-wk-Ul1"/>
                             <constraint firstItem="6N6-3H-Mw4" firstAttribute="trailing" secondItem="LVT-ac-cVH" secondAttribute="trailing" constant="20" id="ayW-HI-Gln"/>
@@ -308,18 +311,15 @@ according to Datchi et al., 2007</string>
                             <constraint firstItem="LVT-ac-cVH" firstAttribute="leading" secondItem="6N6-3H-Mw4" secondAttribute="leading" constant="20" id="fMO-8M-tXF"/>
                             <constraint firstItem="6N6-3H-Mw4" firstAttribute="trailing" secondItem="1tx-s1-xLZ" secondAttribute="trailing" constant="20" id="fVJ-rk-Pro"/>
                             <constraint firstItem="Xax-X0-BAH" firstAttribute="top" secondItem="1ob-rQ-qcT" secondAttribute="bottom" constant="40" id="gJ0-4e-Enf"/>
-                            <constraint firstItem="CdB-nC-7Am" firstAttribute="top" secondItem="3Eb-RZ-3FZ" secondAttribute="bottom" constant="40" id="hvL-vS-DQP"/>
                             <constraint firstItem="vJV-Vm-pEh" firstAttribute="height" secondItem="zet-6i-H8R" secondAttribute="height" id="k0R-d6-YEG"/>
                             <constraint firstItem="6N6-3H-Mw4" firstAttribute="trailing" secondItem="eaE-WS-gV1" secondAttribute="trailing" constant="20" id="m6j-Mc-Wa4"/>
                             <constraint firstItem="MLd-fw-1ab" firstAttribute="leading" secondItem="CEr-Vk-jAM" secondAttribute="trailing" constant="20" id="mCx-N2-2I0"/>
                             <constraint firstItem="eaE-WS-gV1" firstAttribute="top" secondItem="6N6-3H-Mw4" secondAttribute="top" constant="20" id="ndN-aR-9Sc"/>
-                            <constraint firstItem="CdB-nC-7Am" firstAttribute="leading" secondItem="eUI-jW-dpk" secondAttribute="trailing" constant="20" id="olh-xk-qYv"/>
                             <constraint firstItem="1ob-rQ-qcT" firstAttribute="top" secondItem="DyD-mV-07C" secondAttribute="bottom" constant="20" id="sXi-8j-5Tr"/>
                             <constraint firstItem="3Eb-RZ-3FZ" firstAttribute="top" secondItem="MLd-fw-1ab" secondAttribute="bottom" constant="25" id="u1l-yo-jou"/>
                             <constraint firstItem="ZdY-RL-4hq" firstAttribute="top" secondItem="pGF-TV-Mma" secondAttribute="bottom" constant="20" id="x4h-vk-Vqv"/>
                             <constraint firstItem="CEr-Vk-jAM" firstAttribute="top" secondItem="Xax-X0-BAH" secondAttribute="bottom" constant="20" id="yVz-KX-Tyc"/>
                             <constraint firstItem="6N6-3H-Mw4" firstAttribute="trailing" secondItem="zet-6i-H8R" secondAttribute="trailing" constant="20" id="zM8-K3-q2d"/>
-                            <constraint firstItem="6N6-3H-Mw4" firstAttribute="trailing" secondItem="CdB-nC-7Am" secondAttribute="trailing" constant="20" id="zby-kD-Vrf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="e2x-H1-Fw4"/>
