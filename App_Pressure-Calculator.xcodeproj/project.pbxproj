@@ -13,6 +13,9 @@
 		F3C5CBA4253831910076C485 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3C5CBA2253831910076C485 /* Main.storyboard */; };
 		F3C5CBA6253831930076C485 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3C5CBA5253831930076C485 /* Assets.xcassets */; };
 		F3C5CBA9253831930076C485 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3C5CBA7253831930076C485 /* LaunchScreen.storyboard */; };
+		F3C5CBB2253832FC0076C485 /* RubyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5CBB1253832FC0076C485 /* RubyVC.swift */; };
+		F3C5CBB52538332A0076C485 /* DiaRamanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5CBB42538332A0076C485 /* DiaRamanVC.swift */; };
+		F3C5CBB8253833500076C485 /* AnvilRamanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5CBB7253833500076C485 /* AnvilRamanVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		F3C5CBA5253831930076C485 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3C5CBA8253831930076C485 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3C5CBAA253831930076C485 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3C5CBB1253832FC0076C485 /* RubyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubyVC.swift; sourceTree = "<group>"; };
+		F3C5CBB42538332A0076C485 /* DiaRamanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaRamanVC.swift; sourceTree = "<group>"; };
+		F3C5CBB7253833500076C485 /* AnvilRamanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnvilRamanVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +66,9 @@
 				F3C5CB9E253831910076C485 /* SceneDelegate.swift */,
 				F3C5CBA0253831910076C485 /* ViewController.swift */,
 				F3C5CBA2253831910076C485 /* Main.storyboard */,
+				F3C5CBB7253833500076C485 /* AnvilRamanVC.swift */,
+				F3C5CBB42538332A0076C485 /* DiaRamanVC.swift */,
+				F3C5CBB1253832FC0076C485 /* RubyVC.swift */,
 				F3C5CBA5253831930076C485 /* Assets.xcassets */,
 				F3C5CBA7253831930076C485 /* LaunchScreen.storyboard */,
 				F3C5CBAA253831930076C485 /* Info.plist */,
@@ -139,7 +148,10 @@
 			files = (
 				F3C5CBA1253831910076C485 /* ViewController.swift in Sources */,
 				F3C5CB9D253831900076C485 /* AppDelegate.swift in Sources */,
+				F3C5CBB52538332A0076C485 /* DiaRamanVC.swift in Sources */,
+				F3C5CBB2253832FC0076C485 /* RubyVC.swift in Sources */,
 				F3C5CB9F253831910076C485 /* SceneDelegate.swift in Sources */,
+				F3C5CBB8253833500076C485 /* AnvilRamanVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +300,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "App_Pressure-Calculator/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -306,6 +319,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "App_Pressure-Calculator/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
