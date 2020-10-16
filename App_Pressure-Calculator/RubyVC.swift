@@ -15,7 +15,11 @@ class RubyVC: UIViewController {
     
     @IBOutlet weak var refRuby: UITextField!
     @IBOutlet weak var refTemp: UITextField!
+    
+    
     @IBOutlet weak var gotRuby: UITextField!
+    
+    
     @IBOutlet weak var gotTemp: UITextField!
     @IBOutlet weak var calcP: UIButton!
     @IBOutlet weak var resultP: UITextField!
@@ -32,6 +36,12 @@ class RubyVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CellClass.self, forCellReuseIdentifier: "Cell")
+        
+        refRuby.delegate = self
+        refTemp.delegate = self
+        gotRuby.delegate = self
+        gotTemp.delegate = self
+    
     }
     
     // Selecting calibration
@@ -73,9 +83,17 @@ class RubyVC: UIViewController {
         addTransparentView(frames: CalibrationBTN.frame)
     }
     
+    // To dismiss Keybord
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        refRuby.resignFirstResponder()
+        gotRuby.resignFirstResponder()
+        refTemp.resignFirstResponder()
+        gotTemp.resignFirstResponder()
+    }
+    
     @IBAction func calculateP(_ sender: Any) {
         
-        
+        // Starting working on formula to calculate Pressure: resultP.text: Double =
         
     }
 
@@ -102,5 +120,15 @@ extension RubyVC: UITableViewDelegate, UITableViewDataSource {
         removeTransparentView()
     }
    
+}
+
+// Add TextField Delegates
+
+extension RubyVC : UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
 

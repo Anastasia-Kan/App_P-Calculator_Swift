@@ -326,7 +326,7 @@ according to Datchi et al., 2007</string>
                     <connections>
                         <outlet property="CalibrationBTN" destination="eaE-WS-gV1" id="Lpd-Mv-0Pq"/>
                         <outlet property="calcP" destination="3Eb-RZ-3FZ" id="rUr-DJ-e74"/>
-                        <outlet property="gotRuby" destination="MLd-fw-1ab" id="4XR-SL-W3N"/>
+                        <outlet property="gotRuby" destination="pGF-TV-Mma" id="lK7-ka-0vO"/>
                         <outlet property="gotTemp" destination="MLd-fw-1ab" id="Z9i-xX-lLw"/>
                         <outlet property="refRuby" destination="zet-6i-H8R" id="SHL-pp-oRT"/>
                         <outlet property="refTemp" destination="vJV-Vm-pEh" id="bso-bx-ex8"/>
@@ -335,7 +335,7 @@ according to Datchi et al., 2007</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wKr-G0-2OT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1604" y="-462"/>
+            <point key="canvasLocation" x="-1381" y="-463"/>
         </scene>
     </scenes>
     <resources>
