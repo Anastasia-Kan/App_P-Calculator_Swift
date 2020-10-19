@@ -99,15 +99,47 @@ class RubyVC: UIViewController {
         gotRuby.resignFirstResponder()
         refTemp.resignFirstResponder()
         gotTemp.resignFirstResponder()
+        calcP.resignFirstResponder()
+        
     }
     
     @IBAction func calculateP(_ sender: Any) {
+        calcP.resignFirstResponder()
+        // Checking that numbers entered
+        guard let lambda0 = Double(refRuby.text!) else {
+            resultP.text = "Some value is missing"
+            return}
+        guard let RT = Double(refTemp.text!) else {
+            resultP.text = "Some value is missing"
+            return}
+        guard let lambda = Double(gotRuby.text!) else {
+            resultP.text = "Some value is missing"
+            return}
+        guard let T = Double(gotTemp.text!) else {
+            resultP.text = "Some value is missing"
+            return}
+        // Checking that all the numbers are in allowed ranges
+        if (690...800).contains(lambda0) {
+            print("everything is ok")
+        } else {print("something is wrong")}
+        if (280...310).contains(RT) {
+                print("everything is ok")
+            } else {print("something is wrong")}
+        if (690...800).contains(lambda) {
+                print("everything is ok")
+        } else {print("something is wrong")}
+        if (280...5000).contains(T) {
+                    print("everything is ok")
+                } else {print("something is wrong")}
+        // Beginning equation preparation
+        var A: Double
+        A = RT + lambda0
+        print(A)
+        //resultP.text = String["\(A)"]
         
-        // Starting working on formula to calculate Pressure: resultP.text =
-        let lambda0 = Double(refRuby.text!)
-        let lambda = Double(gotRuby.text!)
-        let RT = Double(refTemp.text!)
-        let T = Double(gotTemp.text!)
+    }
+        /*// Starting working on formula to calculate Pressure: resultP.text =
+
         var A = 0.0
         var B = 0.0
       
@@ -124,32 +156,41 @@ class RubyVC: UIViewController {
             let shen2 = B / Y
             let shen3 = 1 + shen2
             
-        }
+        
         
         
         if selectedButton.titleLabel?.text == "Mao (1986) hydrostatic"
          {
               var A = 1904
               var B = 7.665
+            var P: Double = mao3 - mao1
+            print ("\(P)")
+            resultP.text = "\(P)"
           }
         if selectedButton.titleLabel?.text == "Mao (1986) non-hydrostatic"
         {
              var A = 1904
              var B = 5
+            var P: Double = mao3 - mao1
+            print ("\(P)")
+            resultP.text = "\(P)"
          }
         if selectedButton.titleLabel?.text == "Shen (2020)"
         {
             var A = 1870
             var B = 5.63
+            var P: Double = shen1 * shen3
+            print ("\(P)")
+            resultP.text = "\(P)"
          }
         
-        
+        }
         
             //var P: Double
         //var P = A + B
         
-        //print "\(P)"
-        //resultP.text = "\(P)"
+        // print "\(P)"
+       // resultP.text = "\(P)"
         
         
       //  P =
@@ -166,8 +207,9 @@ deltaTref = reftemp-296 */
             
             
         
-        }
+        }*/
     }
+
 
 
 
