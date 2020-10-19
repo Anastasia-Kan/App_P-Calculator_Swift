@@ -54,8 +54,7 @@ class RubyVC: UIViewController {
     
     // Selecting calibration
     func addTransparentView(frames: CGRect) {
-        let window = UIApplication.shared.keyWindow
-        transparentView.frame = window?.frame ?? self.view.frame
+        transparentView.frame = self.view.frame
         self.view.addSubview(transparentView)
         
         tableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height + 5, width: frames.width, height: 0)
@@ -71,7 +70,10 @@ class RubyVC: UIViewController {
         
         UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
             self.transparentView.alpha = 0.5
-            self.tableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width, height: CGFloat(self.dataSource.count * 50))
+            
+            let tableviewheight = CGFloat(self.dataSource.count * 50)
+            
+            self.tableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width, height: tableviewheight)
         }, completion: nil)
     }
     
@@ -102,19 +104,72 @@ class RubyVC: UIViewController {
     @IBAction func calculateP(_ sender: Any) {
         
         // Starting working on formula to calculate Pressure: resultP.text =
-        let referenceRuby = Double(refRuby.text!)
-        let measuredRuby = Double(gotRuby.text!)
-        let referenceTemp = Double(refTemp.text!)
-        let measuredTemp = Double(gotTemp.text!)
-        
+        let lambda0 = Double(refRuby.text!)
+        let lambda = Double(gotRuby.text!)
+        let RT = Double(refTemp.text!)
+        let T = Double(gotTemp.text!)
+        var A = 0.0
+        var B = 0.0
+      
         //resultP.text = referenceRuby + measuredRuby + referenceTemp + measuredTemp
         
+        //var P = 0
+        if lambda != nil && lambda0 != nil && RT != nil && T != nil {
+            let X: Double = lambda!/lambda0!
+            let Y: Double = (lambda! - lambda0!) / lambda0!
+            let mao1 = A / B
+            let mao2 = pow(X, B)
+            let mao3 = mao1 * mao2
+            let shen1 = A * Y
+            let shen2 = B / Y
+            let shen3 = 1 + shen2
+            
+        }
+        
+        
+        if selectedButton.titleLabel?.text == "Mao (1986) hydrostatic"
+         {
+              var A = 1904
+              var B = 7.665
+          }
+        if selectedButton.titleLabel?.text == "Mao (1986) non-hydrostatic"
+        {
+             var A = 1904
+             var B = 5
+         }
+        if selectedButton.titleLabel?.text == "Shen (2020)"
+        {
+            var A = 1870
+            var B = 5.63
+         }
         
         
         
+            //var P: Double
+        //var P = A + B
+        
+        //print "\(P)"
+        //resultP.text = "\(P)"
+        
+        
+      //  P =
+        /*
+reftemp=eval(ruby.reftemp.value)
+temp=eval(ruby.temp.value)
+lam0=eval(ruby.lambda0.value)
+lam=eval(ruby.lambda.value)
+deltaT = temp-296
+deltaTref = reftemp-296 */
+            
+            
+            
+            
+            
+        
+        }
     }
 
-}
+
 
 // Selecting calibration (cont)
 extension RubyVC: UITableViewDelegate, UITableViewDataSource {
