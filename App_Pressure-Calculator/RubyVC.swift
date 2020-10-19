@@ -15,15 +15,13 @@ class RubyVC: UIViewController {
     
     @IBOutlet weak var refRuby: UITextField!
     @IBOutlet weak var refTemp: UITextField!
-    
-    
     @IBOutlet weak var gotRuby: UITextField!
-    
-    
     @IBOutlet weak var gotTemp: UITextField!
     @IBOutlet weak var calcP: UIButton!
     @IBOutlet weak var resultP: UITextField!
     @IBOutlet weak var CalibrationBTN: UIButton!
+    
+    
     
     // Add variables and constants
     let transparentView = UIView()
@@ -43,6 +41,16 @@ class RubyVC: UIViewController {
         gotTemp.delegate = self
     
     }
+    
+    // Excluding all caracters except for decimal NUMBERS
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+        let invalidCaracters = CharacterSet(charactersIn: "0123456789.").inverted
+        
+        return (string.rangeOfCharacter(from: invalidCaracters) == nil)
+        
+    }
+    
     
     // Selecting calibration
     func addTransparentView(frames: CGRect) {
@@ -93,7 +101,16 @@ class RubyVC: UIViewController {
     
     @IBAction func calculateP(_ sender: Any) {
         
-        // Starting working on formula to calculate Pressure: resultP.text: Double =
+        // Starting working on formula to calculate Pressure: resultP.text =
+        let referenceRuby = Double(refRuby.text!)
+        let measuredRuby = Double(gotRuby.text!)
+        let referenceTemp = Double(refTemp.text!)
+        let measuredTemp = Double(gotTemp.text!)
+        
+        //resultP.text = referenceRuby + measuredRuby + referenceTemp + measuredTemp
+        
+        
+        
         
     }
 
