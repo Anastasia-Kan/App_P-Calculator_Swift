@@ -48,11 +48,9 @@ class RubyVC: UIViewController {
         let invalidCaracters = CharacterSet(charactersIn: "0123456789.").inverted
         
         return (string.rangeOfCharacter(from: invalidCaracters) == nil)
-        
     }
     
-    
-    // Selecting calibration
+    // Selecting calibration: Nice Drop-down menu
     func addTransparentView(frames: CGRect) {
         transparentView.frame = self.view.frame
         self.view.addSubview(transparentView)
@@ -77,7 +75,7 @@ class RubyVC: UIViewController {
         }, completion: nil)
     }
     
-    // Selecting calibration (cont)
+    // Selecting calibration (cont): nice exit of selection
     @objc func removeTransparentView() {
         let frames = selectedButton.frame
         UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
@@ -86,7 +84,7 @@ class RubyVC: UIViewController {
         }, completion: nil)
     }
     
-    // Selecting calibration (cont)
+    // Selecting calibration (cont): Making a choise
     @IBAction func SelectCalibration(_ sender: Any) {
         dataSource = ["Mao (1986) hydrostatic", "Mao (1986) non-hydrostatic", "Shen (2020)"]
         selectedButton = CalibrationBTN
@@ -105,6 +103,7 @@ class RubyVC: UIViewController {
     
     @IBAction func calculateP(_ sender: Any) {
         calcP.resignFirstResponder()
+        
         // Checking that numbers entered
         guard let lambda0 = Double(refRuby.text!) else {
             resultP.text = "Some value is missing"
@@ -118,20 +117,39 @@ class RubyVC: UIViewController {
         guard let T = Double(gotTemp.text!) else {
             resultP.text = "Some value is missing"
             return}
+        
         // Checking that all the numbers are in allowed ranges
         if (690...800).contains(lambda0) {
             print("everything is ok")
-        } else {print("something is wrong")}
+        } else {print("something is wrong")
+            resultP.text = "Check your values"
+        }
         if (280...310).contains(RT) {
                 print("everything is ok")
-            } else {print("something is wrong")}
+            } else {print("something is wrong")
+                resultP.text = "Check your values"
+            }
         if (690...800).contains(lambda) {
                 print("everything is ok")
-        } else {print("something is wrong")}
+        } else {print("something is wrong")
+            resultP.text = "Check your values"
+        }
         if (280...5000).contains(T) {
                     print("everything is ok")
-                } else {print("something is wrong")}
-        // Beginning equation preparation
+                } else {print("something is wrong")
+                    resultP.text = "Check your values"
+                }
+        
+        // Beginning equation preparation: extra parameters
+        resultP.text = ""
+        var deltaRT: Double = RT - 296
+        var deltaT: Double = T - 296
+        // Making T-corrections for the measured ruby to get lambda at 296K
+        if (T <= 50) {
+            var deltaLambda = -0.887
+        }
+        if (50...296).contains(T){
+            var deltaLambda = (0.00664 * deltaT)        }
         var A: Double
         A = RT + lambda0
         print(A)
