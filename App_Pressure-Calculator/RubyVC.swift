@@ -100,7 +100,13 @@ class RubyVC: UIViewController {
         calcP.resignFirstResponder()
         
     }
-    
+/* Bill propose to make funktions to calculate P according to different calibrations outside the mane function -
+    func mao1(lamda0 : Double, RT : Double)
+    {
+        var svaret = lamda0 * RT
+        
+    }
+    */
     @IBAction func calculateP(_ sender: Any) {
         calcP.resignFirstResponder()
         
@@ -122,23 +128,32 @@ class RubyVC: UIViewController {
         if (690...800).contains(lambda0) {
             print("everything is ok")
         } else {print("something is wrong")
-            resultP.text = "Check your values"
+                resultP.text = "Check your values"
+                return
         }
         if (280...310).contains(RT) {
                 print("everything is ok")
             } else {print("something is wrong")
-                resultP.text = "Check your values"
+                    resultP.text = "Check your values"
+                    return
             }
         if (690...800).contains(lambda) {
                 print("everything is ok")
         } else {print("something is wrong")
-            resultP.text = "Check your values"
+                resultP.text = "Check your values"
+                return
         }
         if (280...5000).contains(T) {
                     print("everything is ok")
-                } else {print("something is wrong")
-                    resultP.text = "Check your values"
-                }
+        } else {print("something is wrong")
+                resultP.text = "Check your values"
+            return
+        }
+        /* Bill propose to make funktions to calculate P according to different calibrations outside the mane function -
+        if(valet == 0)
+        {
+            mao1(lamda0: lambda, RT: RT)
+        } */
         
         // Beginning equation preparation: extra parameters
         resultP.text = ""
@@ -153,8 +168,7 @@ class RubyVC: UIViewController {
         var A: Double
         A = RT + lambda0
         print(A)
-        //resultP.text = String["\(A)"]
-        
+        resultP.text = String(A)
     }
         /*// Starting working on formula to calculate Pressure: resultP.text =
 
