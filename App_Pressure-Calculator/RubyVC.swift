@@ -121,7 +121,7 @@ class RubyVC: UIViewController {
     @IBAction func calculateP(_ sender: Any) {
         calcP.resignFirstResponder()
         // Checking that calibration selected - doesn't work!!!
-        if selectedButton.titleLabel?.text == "Calibration" {
+        if selectedButton.titleLabel?.text == "" {
             resultP.text = "Choose calibration"
             return
         }
