@@ -126,13 +126,13 @@ class RubyVC: UIViewController {
             return
         }
         // Checking that numbers entered
-        guard var lambda0 = Double(refRuby.text!) else {
+        guard let lambda0 = Double(refRuby.text!) else {
             resultP.text = "Some value is missing"
             return}
         guard let RT = Double(refTemp.text!) else {
             resultP.text = "Some value is missing"
             return}
-        guard var lambda = Double(gotRuby.text!) else {
+        guard let lambda = Double(gotRuby.text!) else {
             resultP.text = "Some value is missing"
             return}
         guard let T = Double(gotTemp.text!) else {
@@ -152,7 +152,7 @@ class RubyVC: UIViewController {
                     resultP.text = "Check your values"
                     return
             }
-        if (690...800).contains(lambda) {
+        if (690...1500).contains(lambda) {
                 print("everything is ok")
         } else {print("something is wrong")
                 resultP.text = "Check your values"
@@ -178,23 +178,10 @@ class RubyVC: UIViewController {
             corrLambda0 = (0.00746 * deltaRT) - (3.01e-6 * deltaRTsqr) + (8.76e-9 * deltaRTcub)
         }
         
-        lambda -= corrLambda
-        lambda0 -= corrLambda0
+        let lam = lambda - corrLambda
+        let lam0 = lambda0 - corrLambda0
         
-        // Calculating pressure according to chosen equation WITHOUT T-corrections
-        if selectedButton.titleLabel?.text == "Mao (1986) hydrostatic" {
-            Mao(A: 1904, B: 7.665, lambda: Double(gotRuby.text!)!, lambda0: Double(refRuby.text!) ?? 622)
-        }
-        if selectedButton.titleLabel?.text == "Mao (1986) non-hydrostatic" {
-            Mao(A: 1904, B: 5, lambda: Double(gotRuby.text!)!, lambda0: Double(refRuby.text!) ?? 622)
-        }
-        if selectedButton.titleLabel?.text == "Shen (2020)" {
-            Shen(A: 1870, B: 5.63, lambda: Double(gotRuby.text!)!, lambda0: Double(refRuby.text!) ?? 622)
-        }
-
-        /*
-        // Calculating pressure according to chosen equation with T-corrections
-     - doesn't work!!!
+      /*  // Calculating pressure according to chosen equation WITHOUT T-corrections
         if selectedButton.titleLabel?.text == "Mao (1986) hydrostatic" {
             Mao(A: 1904, B: 7.665, lambda: lambda, lambda0: lambda0)
         }
@@ -203,7 +190,20 @@ class RubyVC: UIViewController {
         }
         if selectedButton.titleLabel?.text == "Shen (2020)" {
             Shen(A: 1870, B: 5.63, lambda: lambda, lambda0: lambda0)
-        } */
+        }
+*/
+        
+        // Calculating pressure according to chosen equation with T-corrections
+        // - works with a big error @T <= 50!
+        if selectedButton.titleLabel?.text == "Mao (1986) hydrostatic" {
+            Mao(A: 1904, B: 7.665, lambda: lam, lambda0: lam0)
+        }
+        if selectedButton.titleLabel?.text == "Mao (1986) non-hydrostatic" {
+            Mao(A: 1904, B: 5, lambda: lam, lambda0: lam0)
+        }
+        if selectedButton.titleLabel?.text == "Shen (2020)" {
+            Shen(A: 1870, B: 5.63, lambda: lam, lambda0: lam0)
+        }
         
         print(Pressure)
         let P = ((Pressure * 100).rounded()) / 100
