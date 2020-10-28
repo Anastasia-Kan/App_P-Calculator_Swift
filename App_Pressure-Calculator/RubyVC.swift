@@ -120,6 +120,11 @@ class RubyVC: UIViewController {
  
     @IBAction func calculateP(_ sender: Any) {
         calcP.resignFirstResponder()
+        // Checking that calibration selected - doesn't work!!!
+        if selectedButton.titleLabel?.text == "Calibration" {
+            resultP.text = "Choose calibration"
+            return
+        }
         // Checking that numbers entered
         guard var lambda0 = Double(refRuby.text!) else {
             resultP.text = "Some value is missing"
@@ -169,14 +174,27 @@ class RubyVC: UIViewController {
             corrLambda0 = (0.00664 * deltaRT) + (6.76e-6 * deltaRTsqr) - (2.33e-8 * deltaRTcub)
         }
         if (T >= 296) {
-            corrLambda = (0.00746 * deltaT) + (3.01e-6 * deltaTsqr) + (8.76e-9 * deltaTcub)
-            corrLambda0 = (0.00746 * deltaRT) + (3.01e-6 * deltaRTsqr) + (8.76e-9 * deltaRTcub)
+            corrLambda = (0.00746 * deltaT) - (3.01e-6 * deltaTsqr) + (8.76e-9 * deltaTcub)
+            corrLambda0 = (0.00746 * deltaRT) - (3.01e-6 * deltaRTsqr) + (8.76e-9 * deltaRTcub)
         }
         
         lambda -= corrLambda
         lambda0 -= corrLambda0
         
-        // Calculating pressure according to chosen equation
+        // Calculating pressure according to chosen equation WITHOUT T-corrections
+        if selectedButton.titleLabel?.text == "Mao (1986) hydrostatic" {
+            Mao(A: 1904, B: 7.665, lambda: Double(gotRuby.text!)!, lambda0: Double(refRuby.text!) ?? 622)
+        }
+        if selectedButton.titleLabel?.text == "Mao (1986) non-hydrostatic" {
+            Mao(A: 1904, B: 5, lambda: Double(gotRuby.text!)!, lambda0: Double(refRuby.text!) ?? 622)
+        }
+        if selectedButton.titleLabel?.text == "Shen (2020)" {
+            Shen(A: 1870, B: 5.63, lambda: Double(gotRuby.text!)!, lambda0: Double(refRuby.text!) ?? 622)
+        }
+
+        /*
+        // Calculating pressure according to chosen equation with T-corrections
+     - doesn't work!!!
         if selectedButton.titleLabel?.text == "Mao (1986) hydrostatic" {
             Mao(A: 1904, B: 7.665, lambda: lambda, lambda0: lambda0)
         }
@@ -185,34 +203,16 @@ class RubyVC: UIViewController {
         }
         if selectedButton.titleLabel?.text == "Shen (2020)" {
             Shen(A: 1870, B: 5.63, lambda: lambda, lambda0: lambda0)
-        }
+        } */
+        
         print(Pressure)
         let P = ((Pressure * 100).rounded()) / 100
         resultP.text = String(P)
-    }
- }
-
-           
-        /*
-
-        // Making T-corrections for the measured ruby to get lambda at 296K
-        if (T <= 50) {
-            var deltaLambda = -0.887
         }
-        if (50...296).contains(T){
-            var deltaLambda = (0.00664 * deltaT)        }
-    var A: Double = 0.0
-        A = RT + lambda0
-        print(A)
-        resultP.text = String(A)
-    }
-
-deltaT = temp-296
-deltaTref = reftemp-296 */
-            
-
-
-
+   
+    
+    
+ }
 
 // Selecting calibration (cont)
 extension RubyVC: UITableViewDelegate, UITableViewDataSource {
