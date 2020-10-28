@@ -12,7 +12,6 @@ class CellClass: UITableViewCell {
 
 class RubyVC: UIViewController {
     // Presenting all the TextFields and Buttons
-    
     @IBOutlet weak var refRuby: UITextField!
     @IBOutlet weak var refTemp: UITextField!
     @IBOutlet weak var gotRuby: UITextField!
@@ -21,13 +20,13 @@ class RubyVC: UIViewController {
     @IBOutlet weak var resultP: UITextField!
     @IBOutlet weak var CalibrationBTN: UIButton!
     
-    
-    
     // Add variables and constants
     let transparentView = UIView()
     let tableView = UITableView()
     var selectedButton = UIButton()
     var dataSource = [String]()
+    
+    var Pressure = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,26 +97,37 @@ class RubyVC: UIViewController {
         refTemp.resignFirstResponder()
         gotTemp.resignFirstResponder()
         calcP.resignFirstResponder()
-        
     }
-/* Bill propose to make funktions to calculate P according to different calibrations outside the mane function -
-    func mao1(lamda0 : Double, RT : Double)
-    {
-        var svaret = lamda0 * RT
-        
+    // Mao's equation:
+    func Mao(A : Double, B : Double, lambda : Double, lambda0 : Double) -> Double
+    {   let m1 = A / B
+        let m2 = lambda / lambda0
+        let m3 = pow(m2, B)
+        let m4 = m1 * m3
+        Pressure = m4 - m1
+        return Pressure
     }
-    */
+    // Shen's equation
+    func Shen(A : Double, B : Double, lambda : Double, lambda0 : Double) -> Double
+    {   let deltaLambda = lambda - lambda0
+        let sh1 = deltaLambda / lambda0
+        let sh2 = A * sh1
+        let sh3 = B * sh1
+        let sh4 = 1 + sh3
+        Pressure = sh2 * sh4
+        return Pressure
+    }
+ 
     @IBAction func calculateP(_ sender: Any) {
         calcP.resignFirstResponder()
-        
         // Checking that numbers entered
-        guard let lambda0 = Double(refRuby.text!) else {
+        guard var lambda0 = Double(refRuby.text!) else {
             resultP.text = "Some value is missing"
             return}
         guard let RT = Double(refTemp.text!) else {
             resultP.text = "Some value is missing"
             return}
-        guard let lambda = Double(gotRuby.text!) else {
+        guard var lambda = Double(gotRuby.text!) else {
             resultP.text = "Some value is missing"
             return}
         guard let T = Double(gotTemp.text!) else {
@@ -143,104 +153,63 @@ class RubyVC: UIViewController {
                 resultP.text = "Check your values"
                 return
         }
-        if (280...5000).contains(T) {
-                    print("everything is ok")
-        } else {print("something is wrong")
-                resultP.text = "Check your values"
-            return
-        }
-        /* Bill propose to make funktions to calculate P according to different calibrations outside the mane function -
-        if(valet == 0)
-        {
-            mao1(lamda0: lambda, RT: RT)
-        } */
+
+        // Making T-corrections for lambda and lambda0
+        let deltaT = T - 296
+        let deltaTsqr = deltaT * deltaT
+        let deltaTcub = deltaT * deltaT * deltaT
+        let deltaRT = RT - 296
+        let deltaRTsqr = deltaRT * deltaRT
+        let deltaRTcub = deltaRT * deltaRT * deltaRT
+        var corrLambda = -0.887
+        var corrLambda0 = -0.887
         
-        // Beginning equation preparation: extra parameters
-        resultP.text = ""
-        var deltaRT: Double = RT - 296
-        var deltaT: Double = T - 296
+        if (50...296).contains(T){
+            corrLambda = (0.00664 * deltaT) + (6.76e-6 * deltaTsqr) - (2.33e-8 * deltaTcub)
+            corrLambda0 = (0.00664 * deltaRT) + (6.76e-6 * deltaRTsqr) - (2.33e-8 * deltaRTcub)
+        }
+        if (T >= 296) {
+            corrLambda = (0.00746 * deltaT) + (3.01e-6 * deltaTsqr) + (8.76e-9 * deltaTcub)
+            corrLambda0 = (0.00746 * deltaRT) + (3.01e-6 * deltaRTsqr) + (8.76e-9 * deltaRTcub)
+        }
+        
+        lambda -= corrLambda
+        lambda0 -= corrLambda0
+        
+        // Calculating pressure according to chosen equation
+        if selectedButton.titleLabel?.text == "Mao (1986) hydrostatic" {
+            Mao(A: 1904, B: 7.665, lambda: lambda, lambda0: lambda0)
+        }
+        if selectedButton.titleLabel?.text == "Mao (1986) non-hydrostatic" {
+            Mao(A: 1904, B: 5, lambda: lambda, lambda0: lambda0)
+        }
+        if selectedButton.titleLabel?.text == "Shen (2020)" {
+            Shen(A: 1870, B: 5.63, lambda: lambda, lambda0: lambda0)
+        }
+        print(Pressure)
+        let P = ((Pressure * 100).rounded()) / 100
+        resultP.text = String(P)
+    }
+ }
+
+           
+        /*
+
         // Making T-corrections for the measured ruby to get lambda at 296K
         if (T <= 50) {
             var deltaLambda = -0.887
         }
         if (50...296).contains(T){
             var deltaLambda = (0.00664 * deltaT)        }
-        var A: Double
+    var A: Double = 0.0
         A = RT + lambda0
         print(A)
         resultP.text = String(A)
     }
-        /*// Starting working on formula to calculate Pressure: resultP.text =
 
-        var A = 0.0
-        var B = 0.0
-      
-        //resultP.text = referenceRuby + measuredRuby + referenceTemp + measuredTemp
-        
-        //var P = 0
-        if lambda != nil && lambda0 != nil && RT != nil && T != nil {
-            let X: Double = lambda!/lambda0!
-            let Y: Double = (lambda! - lambda0!) / lambda0!
-            let mao1 = A / B
-            let mao2 = pow(X, B)
-            let mao3 = mao1 * mao2
-            let shen1 = A * Y
-            let shen2 = B / Y
-            let shen3 = 1 + shen2
-            
-        
-        
-        
-        if selectedButton.titleLabel?.text == "Mao (1986) hydrostatic"
-         {
-              var A = 1904
-              var B = 7.665
-            var P: Double = mao3 - mao1
-            print ("\(P)")
-            resultP.text = "\(P)"
-          }
-        if selectedButton.titleLabel?.text == "Mao (1986) non-hydrostatic"
-        {
-             var A = 1904
-             var B = 5
-            var P: Double = mao3 - mao1
-            print ("\(P)")
-            resultP.text = "\(P)"
-         }
-        if selectedButton.titleLabel?.text == "Shen (2020)"
-        {
-            var A = 1870
-            var B = 5.63
-            var P: Double = shen1 * shen3
-            print ("\(P)")
-            resultP.text = "\(P)"
-         }
-        
-        }
-        
-            //var P: Double
-        //var P = A + B
-        
-        // print "\(P)"
-       // resultP.text = "\(P)"
-        
-        
-      //  P =
-        /*
-reftemp=eval(ruby.reftemp.value)
-temp=eval(ruby.temp.value)
-lam0=eval(ruby.lambda0.value)
-lam=eval(ruby.lambda.value)
 deltaT = temp-296
 deltaTref = reftemp-296 */
             
-            
-            
-            
-            
-        
-        }*/
-    }
 
 
 
@@ -265,11 +234,9 @@ extension RubyVC: UITableViewDelegate, UITableViewDataSource {
         selectedButton.setTitle(dataSource[indexPath.row], for: .normal)
         removeTransparentView()
     }
-   
 }
 
 // Add TextField Delegates
-
 extension RubyVC : UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
