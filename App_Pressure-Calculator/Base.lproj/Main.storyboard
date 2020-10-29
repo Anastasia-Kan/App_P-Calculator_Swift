@@ -9,18 +9,120 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Diamond Anvil Raman-->
+        <!--Diamond Raman-->
         <scene sceneID="d7D-wG-pPj">
             <objects>
-                <viewController id="Tgw-cd-7QZ" customClass="AnvilRamanVC" customModule="App_Pressure_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Tgw-cd-7QZ" customClass="DiamondRamanVC" customModule="App_Pressure_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w00-G3-bYE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="1333" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qZW-xp-hfY">
+                                <rect key="frame" x="264" y="94" width="140" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="8Kw-I3-Uqb"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="aOb-p5-jla"/>
+                                    <constraint firstAttribute="width" constant="140" id="kOI-Rd-Wo0"/>
+                                    <constraint firstAttribute="height" constant="60" id="tdD-wX-hCh"/>
+                                </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1333" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="W7N-XS-ahp">
+                                <rect key="frame" x="264" y="204" width="140" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="TgU-xG-e9u"/>
+                                    <constraint firstAttribute="width" constant="140" id="ggA-oy-Zb1"/>
+                                </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Ambient pressure diamond peak (cm-1)" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2LF-3g-BaV">
+                                <rect key="frame" x="10" y="94" width="244" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="PFb-3a-8Ah"/>
+                                </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Measured position (cm-1)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5h7-ll-Op1">
+                                <rect key="frame" x="29" y="204" width="225" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="z7K-ac-iHn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PHO-4G-meJ">
+                                <rect key="frame" x="20" y="314" width="374" height="60"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="mzl-ND-9tt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Calculate pressure">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="calcP:" destination="Tgw-cd-7QZ" eventType="touchUpInside" id="m4i-dZ-8cj"/>
+                                    <action selector="calculatePressure:" destination="grF-lX-3HB" eventType="touchUpInside" id="dK5-AG-kLt"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pressure (GPa)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rk-Uu-quw">
+                                <rect key="frame" x="20" y="434" width="210" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Byw-NR-qQv"/>
+                                    <constraint firstAttribute="width" constant="210" id="fwE-z4-AAf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mL2-zo-NzS">
+                                <rect key="frame" x="244" y="434" width="150" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="PcA-0h-PP8"/>
+                                    <constraint firstAttribute="height" constant="60" id="xIZ-pe-Poo"/>
+                                    <constraint firstAttribute="width" constant="150" id="zh9-Bh-37c"/>
+                                </constraints>
+                                <color key="textColor" systemColor="systemPinkColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="3DF-2r-n7H"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2LF-3g-BaV" firstAttribute="top" secondItem="3DF-2r-n7H" secondAttribute="top" constant="50" id="2jd-eI-n5c"/>
+                            <constraint firstItem="0rk-Uu-quw" firstAttribute="leading" secondItem="3DF-2r-n7H" secondAttribute="leading" constant="20" id="3Wz-KJ-eXT"/>
+                            <constraint firstItem="qZW-xp-hfY" firstAttribute="top" secondItem="3DF-2r-n7H" secondAttribute="top" constant="50" id="51I-27-IB5"/>
+                            <constraint firstItem="2LF-3g-BaV" firstAttribute="leading" secondItem="w00-G3-bYE" secondAttribute="leading" constant="10" id="6Lm-cE-V9i"/>
+                            <constraint firstItem="W7N-XS-ahp" firstAttribute="leading" secondItem="5h7-ll-Op1" secondAttribute="trailing" constant="10" id="7yb-ox-3dm"/>
+                            <constraint firstItem="qZW-xp-hfY" firstAttribute="leading" secondItem="2LF-3g-BaV" secondAttribute="trailing" constant="10" id="Alc-FX-p0a"/>
+                            <constraint firstItem="0rk-Uu-quw" firstAttribute="top" secondItem="PHO-4G-meJ" secondAttribute="bottom" constant="60" id="FKU-D4-aKz"/>
+                            <constraint firstItem="W7N-XS-ahp" firstAttribute="top" secondItem="qZW-xp-hfY" secondAttribute="bottom" constant="50" id="Hv1-DQ-BKi"/>
+                            <constraint firstItem="3DF-2r-n7H" firstAttribute="trailing" secondItem="qZW-xp-hfY" secondAttribute="trailing" constant="10" id="KEh-Gj-53C"/>
+                            <constraint firstItem="mL2-zo-NzS" firstAttribute="top" secondItem="PHO-4G-meJ" secondAttribute="bottom" constant="60" id="cPD-mC-P0v"/>
+                            <constraint firstItem="PHO-4G-meJ" firstAttribute="top" secondItem="W7N-XS-ahp" secondAttribute="bottom" constant="50" id="e39-2U-dNE"/>
+                            <constraint firstItem="3DF-2r-n7H" firstAttribute="trailing" secondItem="mL2-zo-NzS" secondAttribute="trailing" constant="20" id="gc5-1c-klD"/>
+                            <constraint firstItem="5h7-ll-Op1" firstAttribute="top" secondItem="2LF-3g-BaV" secondAttribute="bottom" constant="50" id="gfB-n3-pzo"/>
+                            <constraint firstItem="3DF-2r-n7H" firstAttribute="trailing" secondItem="PHO-4G-meJ" secondAttribute="trailing" constant="20" id="hCg-Z4-sdt"/>
+                            <constraint firstItem="W7N-XS-ahp" firstAttribute="leading" secondItem="2LF-3g-BaV" secondAttribute="trailing" constant="10" id="ugC-2O-YuF"/>
+                            <constraint firstItem="PHO-4G-meJ" firstAttribute="leading" secondItem="3DF-2r-n7H" secondAttribute="leading" constant="20" id="xUI-Ep-A8C"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Diamond Anvil Raman" id="EgC-zd-KnW"/>
+                    <tabBarItem key="tabBarItem" title="Diamond Raman" id="EgC-zd-KnW"/>
                     <navigationItem key="navigationItem" id="Jlt-x9-56n"/>
+                    <connections>
+                        <outlet property="ambientPressurePeak" destination="qZW-xp-hfY" id="KFS-Yr-SI3"/>
+                        <outlet property="measuredPeak" destination="W7N-XS-ahp" id="2HG-06-mMe"/>
+                        <outlet property="resultP" destination="mL2-zo-NzS" id="bJe-wv-QHB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7R3-eb-Fjp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -45,10 +147,10 @@
             </objects>
             <point key="canvasLocation" x="-3248" y="230"/>
         </scene>
-        <!--Diamond Anvil-->
+        <!--Diamond Anvil Raman-->
         <scene sceneID="SPh-9e-Vn6">
             <objects>
-                <viewController id="grF-lX-3HB" customClass="DiaRamanVC" customModule="App_Pressure_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="grF-lX-3HB" customClass="DiaAnvilRamanVC" customModule="App_Pressure_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="X4z-o7-FOK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -150,7 +252,7 @@
                             <constraint firstItem="XJ7-VL-DDo" firstAttribute="trailing" secondItem="GyF-XG-ma7" secondAttribute="trailing" constant="20" id="z9L-nh-Nsv"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Diamond Anvil" id="qVM-hr-Ecj"/>
+                    <tabBarItem key="tabBarItem" title="Diamond Anvil Raman" id="qVM-hr-Ecj"/>
                     <navigationItem key="navigationItem" id="lZi-rI-Dyn"/>
                     <connections>
                         <outlet property="AmbientPressurePeak" destination="qiC-1x-C9G" id="aGc-T5-qYw"/>
@@ -177,7 +279,7 @@
                                     <constraint firstAttribute="height" constant="50" id="K8u-63-41s"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Calibration">
+                                <state key="normal" title="Choose Calibration">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
