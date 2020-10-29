@@ -169,32 +169,25 @@ class RubyVC: UIViewController {
         var corrLambda = -0.887
         var corrLambda0 = -0.887
         
-        if (50...296).contains(T){
-            corrLambda = (0.00664 * deltaT) + (6.76e-6 * deltaTsqr) - (2.33e-8 * deltaTcub)
+        if (50...296).contains(RT){
             corrLambda0 = (0.00664 * deltaRT) + (6.76e-6 * deltaRTsqr) - (2.33e-8 * deltaRTcub)
         }
-        if (T >= 296) {
-            corrLambda = (0.00746 * deltaT) - (3.01e-6 * deltaTsqr) + (8.76e-9 * deltaTcub)
+        if (RT >= 296) {
             corrLambda0 = (0.00746 * deltaRT) - (3.01e-6 * deltaRTsqr) + (8.76e-9 * deltaRTcub)
         }
         
-        let lam = lambda - corrLambda
         let lam0 = lambda0 - corrLambda0
         
-      /*  // Calculating pressure according to chosen equation WITHOUT T-corrections
-        if selectedButton.titleLabel?.text == "Mao (1986) hydrostatic" {
-            Mao(A: 1904, B: 7.665, lambda: lambda, lambda0: lambda0)
+        if (50...296).contains(T){
+            corrLambda = (0.00664 * deltaT) + (6.76e-6 * deltaTsqr) - (2.33e-8 * deltaTcub)
         }
-        if selectedButton.titleLabel?.text == "Mao (1986) non-hydrostatic" {
-            Mao(A: 1904, B: 5, lambda: lambda, lambda0: lambda0)
+        if (T >= 296) {
+            corrLambda = (0.00746 * deltaT) - (3.01e-6 * deltaTsqr) + (8.76e-9 * deltaTcub)
         }
-        if selectedButton.titleLabel?.text == "Shen (2020)" {
-            Shen(A: 1870, B: 5.63, lambda: lambda, lambda0: lambda0)
-        }
-*/
         
+        let lam = lambda - corrLambda
+
         // Calculating pressure according to chosen equation with T-corrections
-        // - works with a big error @T <= 50!
         if selectedButton.titleLabel?.text == "Mao (1986) hydrostatic" {
             Mao(A: 1904, B: 7.665, lambda: lam, lambda0: lam0)
         }
