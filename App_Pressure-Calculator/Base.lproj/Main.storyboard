@@ -348,7 +348,9 @@
                             <constraint firstItem="6N6-3H-Mw4" firstAttribute="trailing" secondItem="zet-6i-H8R" secondAttribute="trailing" constant="20" id="zM8-K3-q2d"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Ruby Fluorescence" id="Tp2-Cz-Q4f"/>
+                    <tabBarItem key="tabBarItem" title="Ruby Fluorescence" id="Tp2-Cz-Q4f">
+                        <color key="badgeColor" systemColor="systemOrangeColor"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="e2x-H1-Fw4"/>
                     <connections>
                         <outlet property="CalibrationBTN" destination="eaE-WS-gV1" id="Lpd-Mv-0Pq"/>
@@ -368,6 +370,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
