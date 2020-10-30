@@ -38,6 +38,12 @@ class RubyVC: UIViewController {
         refTemp.delegate = self
         gotRuby.delegate = self
         gotTemp.delegate = self
+        
+        CalibrationBTN.layer.cornerRadius = 12
+        CalibrationBTN.clipsToBounds = true
+        
+        calcP.layer.cornerRadius = 12
+        calcP.clipsToBounds = true
     
     }
     

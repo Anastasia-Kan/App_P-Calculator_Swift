@@ -13,6 +13,7 @@ class DiamondRamanVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var ambientPressurePeak: UITextField!
     @IBOutlet weak var measuredPeak: UITextField!
     @IBOutlet weak var resultP: UITextField!
+    @IBOutlet weak var calcP: UIButton!
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -31,6 +32,10 @@ class DiamondRamanVC: UIViewController, UITextFieldDelegate {
         ambientPressurePeak.delegate = self
         measuredPeak.delegate = self
         resultP.delegate = self
+        
+        calcP.layer.cornerRadius = 12
+        calcP.clipsToBounds = true
+    
     }
     
     @IBAction func calcP(_ sender: Any) {

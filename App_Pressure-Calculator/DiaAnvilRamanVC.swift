@@ -13,6 +13,8 @@ class DiaAnvilRamanVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var AmbientPressurePeak: UITextField!
     @IBOutlet weak var MeasuredPeak: UITextField!
     @IBOutlet weak var resultP: UITextField!
+    @IBOutlet weak var calcP: UIButton!
+    
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -31,6 +33,10 @@ class DiaAnvilRamanVC: UIViewController, UITextFieldDelegate {
         AmbientPressurePeak.delegate = self
         MeasuredPeak.delegate = self
         resultP.delegate = self
+        
+        calcP.layer.cornerRadius = 12
+        calcP.clipsToBounds = true
+    
         }
     
     @IBAction func calculatePressure(_ sender: Any) {
