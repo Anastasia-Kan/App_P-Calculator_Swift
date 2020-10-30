@@ -19,6 +19,8 @@ class RubyVC: UIViewController {
     @IBOutlet weak var calcP: UIButton!
     @IBOutlet weak var resultP: UITextField!
     @IBOutlet weak var CalibrationBTN: UIButton!
+    @IBOutlet weak var saveToLogBook: UIButton!
+    
     
     // Add variables and constants
     let transparentView = UIView()
@@ -39,15 +41,16 @@ class RubyVC: UIViewController {
         gotRuby.delegate = self
         gotTemp.delegate = self
         
-        CalibrationBTN.layer.cornerRadius = 12
+        CalibrationBTN.layer.cornerRadius = 10
         CalibrationBTN.clipsToBounds = true
-        
-        calcP.layer.cornerRadius = 12
+        calcP.layer.cornerRadius = 10
         calcP.clipsToBounds = true
-    
+        saveToLogBook.layer.cornerRadius = 10
+        saveToLogBook.clipsToBounds = true
     }
     
     // Excluding all caracters except for decimal NUMBERS
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
         let invalidCaracters = CharacterSet(charactersIn: "0123456789.").inverted
@@ -208,7 +211,11 @@ class RubyVC: UIViewController {
         let P = ((Pressure * 100).rounded()) / 100
         resultP.text = String(P)
         }
-   
+    
+
+    @IBAction func save(_ sender: Any) {
+    }
+    
     
     
  }

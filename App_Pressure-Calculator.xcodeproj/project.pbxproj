@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F3BBAA99254C1DAD00E74F16 /* LogBookVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BBAA98254C1DAD00E74F16 /* LogBookVC.swift */; };
 		F3C5CB9D253831900076C485 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5CB9C253831900076C485 /* AppDelegate.swift */; };
 		F3C5CB9F253831910076C485 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5CB9E253831910076C485 /* SceneDelegate.swift */; };
 		F3C5CBA1253831910076C485 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5CBA0253831910076C485 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F3BBAA98254C1DAD00E74F16 /* LogBookVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogBookVC.swift; sourceTree = "<group>"; };
 		F3C5CB99253831900076C485 /* App_Pressure-Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "App_Pressure-Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3C5CB9C253831900076C485 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3C5CB9E253831910076C485 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				F3C5CB9E253831910076C485 /* SceneDelegate.swift */,
 				F3C5CBA0253831910076C485 /* ViewController.swift */,
 				F3C5CBA2253831910076C485 /* Main.storyboard */,
+				F3BBAA98254C1DAD00E74F16 /* LogBookVC.swift */,
 				F3C5CBB7253833500076C485 /* DiamondRamanVC.swift */,
 				F3C5CBB42538332A0076C485 /* DiaAnvilRamanVC.swift */,
 				F3C5CBB1253832FC0076C485 /* RubyVC.swift */,
@@ -148,6 +151,7 @@
 			files = (
 				F3C5CBA1253831910076C485 /* ViewController.swift in Sources */,
 				F3C5CB9D253831900076C485 /* AppDelegate.swift in Sources */,
+				F3BBAA99254C1DAD00E74F16 /* LogBookVC.swift in Sources */,
 				F3C5CBB52538332A0076C485 /* DiaAnvilRamanVC.swift in Sources */,
 				F3C5CBB2253832FC0076C485 /* RubyVC.swift in Sources */,
 				F3C5CB9F253831910076C485 /* SceneDelegate.swift in Sources */,

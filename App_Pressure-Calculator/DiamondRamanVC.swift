@@ -14,6 +14,9 @@ class DiamondRamanVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var measuredPeak: UITextField!
     @IBOutlet weak var resultP: UITextField!
     @IBOutlet weak var calcP: UIButton!
+    @IBOutlet weak var note: UITextView!
+    @IBOutlet weak var saveToLogBook: UIButton!
+    
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -33,8 +36,13 @@ class DiamondRamanVC: UIViewController, UITextFieldDelegate {
         measuredPeak.delegate = self
         resultP.delegate = self
         
-        calcP.layer.cornerRadius = 12
+        calcP.layer.cornerRadius = 10
         calcP.clipsToBounds = true
+        note.layer.cornerRadius = 10
+        note.clipsToBounds = true
+        saveToLogBook.layer.cornerRadius = 10
+        saveToLogBook.clipsToBounds = true
+    
     
     }
     
@@ -74,5 +82,9 @@ class DiamondRamanVC: UIViewController, UITextFieldDelegate {
         let P = ((pressure * 100).rounded()) / 100
         resultP.text = String(P)
         
+    }
+    
+    
+    @IBAction func save(_ sender: Any) {
     }
 }
