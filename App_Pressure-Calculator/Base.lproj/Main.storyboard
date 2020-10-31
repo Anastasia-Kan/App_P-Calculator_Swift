@@ -96,7 +96,7 @@
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="It is not a Raman signal from an anvil, it is a peak from diamond inside the sample chamber." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ad-Sa-6cq">
                                 <rect key="frame" x="10" y="54" width="394" height="60"/>
-                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <color key="backgroundColor" red="1" green="0.83754597919999996" blue="0.68603175179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -110,20 +110,19 @@
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGU-A4-Zqa">
                                 <rect key="frame" x="194" y="584" width="200" height="50"/>
-                                <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="4Zd-Nz-lHS"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="G2k-Wd-zD0"/>
                                     <constraint firstAttribute="width" constant="200" id="Gkm-DV-Fuq"/>
                                     <constraint firstAttribute="height" constant="50" id="yP3-3Z-Voc"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Save to Log Book">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="save:" destination="Tgw-cd-7QZ" eventType="touchUpInside" id="EgJ-cz-Csc"/>
-                                    <segue destination="oHa-pZ-7vR" kind="show" id="P9O-iH-cNh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -166,7 +165,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7R3-eb-Fjp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2136.231884057971" y="948.88392857142856"/>
+            <point key="canvasLocation" x="-2136" y="976"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="NAe-oT-u36">
@@ -181,12 +180,12 @@
                         <segue destination="pN9-rw-bsd" kind="relationship" relationship="viewControllers" id="BUY-iS-uiY"/>
                         <segue destination="grF-lX-3HB" kind="relationship" relationship="viewControllers" id="HpA-rH-5i9"/>
                         <segue destination="Tgw-cd-7QZ" kind="relationship" relationship="viewControllers" id="hgV-yf-VWs"/>
-                        <segue destination="oHa-pZ-7vR" kind="relationship" relationship="viewControllers" id="9os-ws-OpP"/>
+                        <segue destination="vdN-MW-S3l" kind="relationship" relationship="viewControllers" id="08N-Xt-jOm"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qna-Ii-WWb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3248" y="230"/>
+            <point key="canvasLocation" x="-3249" y="230"/>
         </scene>
         <!--Diamond Anvil-->
         <scene sceneID="SPh-9e-Vn6">
@@ -272,7 +271,7 @@
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="Raman signal should be measured at the center of culet. The &quot;measured position&quot; is the minimum of the Raman signal derivative" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8F-OE-2b7">
                                 <rect key="frame" x="10" y="54" width="394" height="80"/>
-                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <color key="backgroundColor" red="1" green="0.83754597919999996" blue="0.68603175179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -286,20 +285,19 @@
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJk-Za-OBX">
                                 <rect key="frame" x="194" y="604" width="200" height="50"/>
-                                <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="0.92223447085889576" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="8gr-Aw-go4"/>
                                     <constraint firstAttribute="width" constant="200" id="CVg-Gp-dWc"/>
                                     <constraint firstAttribute="height" constant="50" id="TQT-7u-esL"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="Y60-Uh-1Tt"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Save to Log Book">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="save:" destination="grF-lX-3HB" eventType="touchUpInside" id="T6X-7X-F03"/>
-                                    <segue destination="oHa-pZ-7vR" kind="show" id="W1l-ad-2Qj"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -343,24 +341,106 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aRy-y6-bsH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2136.231884057971" y="191.51785714285714"/>
+            <point key="canvasLocation" x="-2136" y="230"/>
         </scene>
         <!--Log Book-->
-        <scene sceneID="d3S-Zz-QMJ">
+        <scene sceneID="zjD-mg-khD">
             <objects>
-                <viewController id="oHa-pZ-7vR" customClass="LogBookVC" customModule="App_Pressure_Calculator" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ZrE-nR-l1Y">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                <viewController id="vdN-MW-S3l" customClass="LogBookVC" customModule="App_Pressure_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lrm-wS-37i">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="liJ-vu-L3f"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log Book" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdf-mK-pEM">
+                                <rect key="frame" x="40" y="64" width="334" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Ub4-Zx-vNk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Time" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qfr-MI-VIN">
+                                <rect key="frame" x="304" y="124" width="100" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="6dn-jw-ajX"/>
+                                    <constraint firstAttribute="height" constant="40" id="yDW-ii-IVy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="P, GPa" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GmH-sT-Hur">
+                                <rect key="frame" x="194" y="124" width="100" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="IfR-3d-pst"/>
+                                    <constraint firstAttribute="height" constant="40" id="lfX-28-dWA"/>
+                                </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sample's name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TfR-wB-46k">
+                                <rect key="frame" x="10" y="124" width="174" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="PhM-Cf-Mq9"/>
+                                </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1B-x3-sud">
+                                <rect key="frame" x="30" y="174" width="354" height="30"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="tiG-wN-Ggr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oHV-W7-RRe">
+                                <rect key="frame" x="10" y="214" width="394" height="589"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="w9r-si-B6c">
+                                        <rect key="frame" x="0.0" y="28" width="394" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w9r-si-B6c" id="zuW-7k-3eZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="394" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="HTq-nB-kei"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qfr-MI-VIN" firstAttribute="top" secondItem="bdf-mK-pEM" secondAttribute="bottom" constant="20" id="1uK-kP-BVz"/>
+                            <constraint firstItem="HTq-nB-kei" firstAttribute="bottom" secondItem="oHV-W7-RRe" secondAttribute="bottom" constant="10" id="2mQ-Ly-uXg"/>
+                            <constraint firstItem="oHV-W7-RRe" firstAttribute="leading" secondItem="HTq-nB-kei" secondAttribute="leading" constant="10" id="4jJ-NJ-MwD"/>
+                            <constraint firstItem="HTq-nB-kei" firstAttribute="trailing" secondItem="bdf-mK-pEM" secondAttribute="trailing" constant="40" id="6LP-CU-uTg"/>
+                            <constraint firstItem="B1B-x3-sud" firstAttribute="top" secondItem="GmH-sT-Hur" secondAttribute="bottom" constant="10" id="CpO-VK-Qhj"/>
+                            <constraint firstItem="TfR-wB-46k" firstAttribute="top" secondItem="bdf-mK-pEM" secondAttribute="bottom" constant="20" id="Dpi-X5-6ph"/>
+                            <constraint firstItem="qfr-MI-VIN" firstAttribute="leading" secondItem="GmH-sT-Hur" secondAttribute="trailing" constant="10" id="IbT-am-uVS"/>
+                            <constraint firstItem="HTq-nB-kei" firstAttribute="trailing" secondItem="oHV-W7-RRe" secondAttribute="trailing" constant="10" id="PDs-FE-bxz"/>
+                            <constraint firstItem="HTq-nB-kei" firstAttribute="trailing" secondItem="B1B-x3-sud" secondAttribute="trailing" constant="30" id="U5A-0x-073"/>
+                            <constraint firstItem="GmH-sT-Hur" firstAttribute="top" secondItem="bdf-mK-pEM" secondAttribute="bottom" constant="20" id="Uco-XS-dDt"/>
+                            <constraint firstItem="GmH-sT-Hur" firstAttribute="leading" secondItem="TfR-wB-46k" secondAttribute="trailing" constant="10" id="Z4K-fj-6hp"/>
+                            <constraint firstItem="bdf-mK-pEM" firstAttribute="top" secondItem="HTq-nB-kei" secondAttribute="top" constant="20" id="blF-C4-sNk"/>
+                            <constraint firstItem="HTq-nB-kei" firstAttribute="trailing" secondItem="qfr-MI-VIN" secondAttribute="trailing" constant="10" id="c33-eY-YOS"/>
+                            <constraint firstItem="B1B-x3-sud" firstAttribute="leading" secondItem="HTq-nB-kei" secondAttribute="leading" constant="30" id="kKI-Hf-rm6"/>
+                            <constraint firstItem="TfR-wB-46k" firstAttribute="leading" secondItem="HTq-nB-kei" secondAttribute="leading" constant="10" id="opC-GD-7mk"/>
+                            <constraint firstItem="oHV-W7-RRe" firstAttribute="top" secondItem="B1B-x3-sud" secondAttribute="bottom" constant="10" id="rIk-cW-llE"/>
+                            <constraint firstItem="bdf-mK-pEM" firstAttribute="leading" secondItem="HTq-nB-kei" secondAttribute="leading" constant="40" id="yDj-uE-u3z"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Log Book" id="eo4-Mm-Yet"/>
-                    <navigationItem key="navigationItem" id="n4m-sX-0QJ"/>
+                    <tabBarItem key="tabBarItem" title="Log Book" id="Uhc-By-6TM"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Dj7-HG-aYh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J5E-pQ-xFv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5090" y="949"/>
+            <point key="canvasLocation" x="-1019" y="230"/>
         </scene>
         <!--Ruby-->
         <scene sceneID="mV9-MX-tcS">
@@ -510,19 +590,18 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIC-Mz-b3v">
                                 <rect key="frame" x="194" y="679" width="200" height="50"/>
-                                <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="0.91745350843558282" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="GX5-Go-7HN"/>
                                     <constraint firstAttribute="width" constant="200" id="fzk-D9-4AJ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Save to Log Book">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="save:" destination="pN9-rw-bsd" eventType="touchUpInside" id="Wb6-eE-vGL"/>
                                     <action selector="saveToLogBook:" destination="pN9-rw-bsd" eventType="touchUpInside" id="RXE-QN-CUH"/>
-                                    <segue destination="oHa-pZ-7vR" kind="show" id="Vy0-4f-ouC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -584,12 +663,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wKr-G0-2OT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1876.8115942028987" y="-540.40178571428567"/>
+            <point key="canvasLocation" x="-2136" y="-550"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="W1l-ad-2Qj"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -602,6 +678,9 @@
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

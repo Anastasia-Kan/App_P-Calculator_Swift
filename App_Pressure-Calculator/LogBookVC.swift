@@ -6,30 +6,101 @@
 //
 
 import UIKit
-/*
-Diamond
-Anvil Raman
 
- 
- 
- */
 class LogBookVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+    }
+}
+
+/*class LogBookVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    
+    @IBOutlet weak var oneRow: UITableViewCell!
+    @IBOutlet weak var log: UITableView!
+    
+    var logBook = [String : [String, String]]()
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     return logBook.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+     let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+     
+        //cell?.textLabel?.text = logBook[(String, String)]()
+     
+     return cell!
+    }
+    
+     /*
+    @IBOutlet weak var theTextfield: UITextField!
+    @IBOutlet weak var theTableview: UITableView!
+   
+    var favorites = [String]()
+     */
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let defaults = UserDefaults.standard
+        // Get current date and time
+        let now = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .none
+        dateFormatter.timeStyle = .short
+        print(dateFormatter.string(from: now))
+        
+
+        /*
+        if let theSavedText = defaults.string(forKey: "thetext") {
+            theTextfield.text = theSavedText
+        }
+  
+        
+        if let theSavedFav = defaults.array(forKey: "fav") {
+            favorites = theSavedFav as! [String]
+        }
+        
+    }
+    
+    
+    @IBAction func letsSave(_ sender: Any) {
+        let defaults = UserDefaults.standard
+        
+        //defaults.set(theTextfield.text, forKey: "thetext")
+        
+        favorites.append(theTextfield.text!)
+        
+        defaults.set(favorites, forKey: "fav")
+        
+        theTableview.reloadData()
+        theTextfield.text = ""
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return favorites.count
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        
+        cell?.textLabel?.text = favorites[indexPath.row]
+        
+        return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        favorites.remove(at: indexPath.row)
+        
+        let defaults = UserDefaults.standard
+        defaults.set(favorites, forKey: "fav")
+        
+        theTableview.reloadData()
+    }       */
+  }
 }
+*/
