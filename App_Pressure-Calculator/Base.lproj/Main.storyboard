@@ -360,7 +360,7 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Time" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qfr-MI-VIN">
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Time" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qfr-MI-VIN">
                                 <rect key="frame" x="304" y="124" width="100" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="6dn-jw-ajX"/>
@@ -369,7 +369,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="P, GPa" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GmH-sT-Hur">
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="P, GPa" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GmH-sT-Hur">
                                 <rect key="frame" x="194" y="124" width="100" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="IfR-3d-pst"/>
@@ -400,7 +400,7 @@
                                 </state>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oHV-W7-RRe">
-                                <rect key="frame" x="10" y="214" width="394" height="589"/>
+                                <rect key="frame" x="10" y="264" width="394" height="539"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="w9r-si-B6c">
@@ -413,30 +413,46 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Sample                          P, GPa                 Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dpp-k5-lIe">
+                                <rect key="frame" x="10" y="214" width="394" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HTq-nB-kei"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="qfr-MI-VIN" firstAttribute="top" secondItem="bdf-mK-pEM" secondAttribute="bottom" constant="20" id="1uK-kP-BVz"/>
+                            <constraint firstItem="Dpp-k5-lIe" firstAttribute="top" secondItem="B1B-x3-sud" secondAttribute="bottom" constant="10" id="2br-aZ-Ndd"/>
                             <constraint firstItem="HTq-nB-kei" firstAttribute="bottom" secondItem="oHV-W7-RRe" secondAttribute="bottom" constant="10" id="2mQ-Ly-uXg"/>
                             <constraint firstItem="oHV-W7-RRe" firstAttribute="leading" secondItem="HTq-nB-kei" secondAttribute="leading" constant="10" id="4jJ-NJ-MwD"/>
                             <constraint firstItem="HTq-nB-kei" firstAttribute="trailing" secondItem="bdf-mK-pEM" secondAttribute="trailing" constant="40" id="6LP-CU-uTg"/>
                             <constraint firstItem="B1B-x3-sud" firstAttribute="top" secondItem="GmH-sT-Hur" secondAttribute="bottom" constant="10" id="CpO-VK-Qhj"/>
                             <constraint firstItem="TfR-wB-46k" firstAttribute="top" secondItem="bdf-mK-pEM" secondAttribute="bottom" constant="20" id="Dpi-X5-6ph"/>
+                            <constraint firstItem="oHV-W7-RRe" firstAttribute="top" secondItem="Dpp-k5-lIe" secondAttribute="bottom" constant="10" id="Hh6-aZ-3eD"/>
                             <constraint firstItem="qfr-MI-VIN" firstAttribute="leading" secondItem="GmH-sT-Hur" secondAttribute="trailing" constant="10" id="IbT-am-uVS"/>
                             <constraint firstItem="HTq-nB-kei" firstAttribute="trailing" secondItem="oHV-W7-RRe" secondAttribute="trailing" constant="10" id="PDs-FE-bxz"/>
+                            <constraint firstItem="Dpp-k5-lIe" firstAttribute="leading" secondItem="HTq-nB-kei" secondAttribute="leading" constant="10" id="Q8n-ps-RDM"/>
                             <constraint firstItem="HTq-nB-kei" firstAttribute="trailing" secondItem="B1B-x3-sud" secondAttribute="trailing" constant="30" id="U5A-0x-073"/>
                             <constraint firstItem="GmH-sT-Hur" firstAttribute="top" secondItem="bdf-mK-pEM" secondAttribute="bottom" constant="20" id="Uco-XS-dDt"/>
+                            <constraint firstItem="HTq-nB-kei" firstAttribute="trailing" secondItem="Dpp-k5-lIe" secondAttribute="trailing" constant="10" id="Y8Q-a5-PSj"/>
                             <constraint firstItem="GmH-sT-Hur" firstAttribute="leading" secondItem="TfR-wB-46k" secondAttribute="trailing" constant="10" id="Z4K-fj-6hp"/>
                             <constraint firstItem="bdf-mK-pEM" firstAttribute="top" secondItem="HTq-nB-kei" secondAttribute="top" constant="20" id="blF-C4-sNk"/>
                             <constraint firstItem="HTq-nB-kei" firstAttribute="trailing" secondItem="qfr-MI-VIN" secondAttribute="trailing" constant="10" id="c33-eY-YOS"/>
                             <constraint firstItem="B1B-x3-sud" firstAttribute="leading" secondItem="HTq-nB-kei" secondAttribute="leading" constant="30" id="kKI-Hf-rm6"/>
                             <constraint firstItem="TfR-wB-46k" firstAttribute="leading" secondItem="HTq-nB-kei" secondAttribute="leading" constant="10" id="opC-GD-7mk"/>
-                            <constraint firstItem="oHV-W7-RRe" firstAttribute="top" secondItem="B1B-x3-sud" secondAttribute="bottom" constant="10" id="rIk-cW-llE"/>
+                            <constraint firstItem="oHV-W7-RRe" firstAttribute="top" secondItem="B1B-x3-sud" secondAttribute="bottom" constant="60" id="rIk-cW-llE"/>
                             <constraint firstItem="bdf-mK-pEM" firstAttribute="leading" secondItem="HTq-nB-kei" secondAttribute="leading" constant="40" id="yDj-uE-u3z"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Log Book" id="Uhc-By-6TM"/>
+                    <connections>
+                        <outlet property="TimeField" destination="qfr-MI-VIN" id="CSk-YB-gqh"/>
+                        <outlet property="pressureField" destination="GmH-sT-Hur" id="2Pt-aQ-fkc"/>
+                        <outlet property="sampleField" destination="TfR-wB-46k" id="y5A-h6-0ml"/>
+                        <outlet property="save" destination="B1B-x3-sud" id="d0R-ql-X7d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J5E-pQ-xFv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
