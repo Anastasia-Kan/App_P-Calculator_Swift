@@ -30,6 +30,26 @@ class RubyVC: UIViewController {
     
     var Pressure = 0.0
     
+    @objc func adjustForKeyboard(notification: Notification) {
+        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+
+        let keyboardScreenEndFrame = keyboardValue.cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+        
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            let viewframe = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+            view.frame = viewframe
+        } else {
+            if(sampleName.isFirstResponder)
+            {
+                let viewframe = CGRect(x: 0, y: -keyboardViewEndFrame.height, width: view.frame.width, height: view.frame.height)
+                view.frame = viewframe
+            }
+            
+        }
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -48,6 +68,10 @@ class RubyVC: UIViewController {
         calcP.clipsToBounds = true
         saveToLogBook.layer.cornerRadius = 10
         saveToLogBook.clipsToBounds = true
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
     // Excluding all caracters except for decimal NUMBERS
@@ -224,10 +248,14 @@ class RubyVC: UIViewController {
         resultP.text = String(P)
         }
     
-/*
+
     @IBAction func save(_ sender: Any) {
+     view.endEditing(true)
+     
+     print(sampleName.text ?? "DAC-1")
+     print(resultP.text ?? "0.0")
     }
- */
+ 
     
     
  }

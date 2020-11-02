@@ -9,11 +9,6 @@ import UIKit
 
 class LogBookVC: UIViewController {
 
-    @IBOutlet weak var TimeField: UITextField!
-    @IBOutlet weak var pressureField: UITextField!
-    @IBOutlet weak var sampleField: UITextField!
-    @IBOutlet weak var save: UIButton!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Get current date and time
@@ -22,11 +17,6 @@ class LogBookVC: UIViewController {
         dateFormatter.dateStyle = .none
         dateFormatter.timeStyle = .short
         print(dateFormatter.string(from: now))
-        
-        TimeField.text = String(dateFormatter.string(from: now))
-        
-        save.layer.cornerRadius = 10
-        save.clipsToBounds = true
         
     }
 }
