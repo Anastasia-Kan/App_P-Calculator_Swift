@@ -16,6 +16,7 @@ class DiamondRamanVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var calcP: UIButton!
     @IBOutlet weak var note: UITextView!
     @IBOutlet weak var saveToLogBook: UIButton!
+    @IBOutlet weak var sampleName: UITextField!
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -24,10 +25,15 @@ class DiamondRamanVC: UIViewController, UITextFieldDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        ambientPressurePeak.resignFirstResponder()
-        measuredPeak.resignFirstResponder()
-        resultP.resignFirstResponder()
+        view.endEditing(true)
+        
+        if (ambientPressurePeak.text == "") {
+            ambientPressurePeak.text = "1333"
         }
+        if (measuredPeak.text == "") {
+            measuredPeak.text = "1333"
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +41,7 @@ class DiamondRamanVC: UIViewController, UITextFieldDelegate {
         ambientPressurePeak.delegate = self
         measuredPeak.delegate = self
         resultP.delegate = self
+        sampleName.delegate = self
         
         calcP.layer.cornerRadius = 10
         calcP.clipsToBounds = true
@@ -47,6 +54,9 @@ class DiamondRamanVC: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func calcP(_ sender: Any) {
+        view.endEditing(true)
+
+        
         // Checking that numbers entered
         guard let dia0 = Double(ambientPressurePeak.text!) else {
             resultP.text = "Some value is missing"

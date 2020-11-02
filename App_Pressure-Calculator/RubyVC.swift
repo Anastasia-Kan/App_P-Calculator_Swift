@@ -20,7 +20,7 @@ class RubyVC: UIViewController {
     @IBOutlet weak var resultP: UITextField!
     @IBOutlet weak var CalibrationBTN: UIButton!
     @IBOutlet weak var saveToLogBook: UIButton!
-    
+    @IBOutlet weak var sampleName: UITextField!
     
     // Add variables and constants
     let transparentView = UIView()
@@ -40,6 +40,7 @@ class RubyVC: UIViewController {
         refTemp.delegate = self
         gotRuby.delegate = self
         gotTemp.delegate = self
+        //sampleName.delegate = self
         
         CalibrationBTN.layer.cornerRadius = 10
         CalibrationBTN.clipsToBounds = true
@@ -101,11 +102,20 @@ class RubyVC: UIViewController {
     
     // To dismiss Keybord
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        refRuby.resignFirstResponder()
-        gotRuby.resignFirstResponder()
-        refTemp.resignFirstResponder()
-        gotTemp.resignFirstResponder()
-        calcP.resignFirstResponder()
+        view.endEditing(true)
+        
+        if (refRuby.text == "") {
+            refRuby.text = "694.22"
+        }
+        if (refTemp.text == "") {
+            refTemp.text = "298"
+        }
+        if (gotRuby.text == "") {
+            gotRuby.text = "694.22"
+        }
+        if (gotTemp.text == "") {
+            gotTemp.text = "298"
+        }
     }
     // Mao's equation:
     func Mao(A : Double, B : Double, lambda : Double, lambda0 : Double) -> Double
@@ -129,12 +139,7 @@ class RubyVC: UIViewController {
  
     @IBAction func calculateP(_ sender: Any) {
         
-        refRuby.resignFirstResponder()
-        gotRuby.resignFirstResponder()
-        refTemp.resignFirstResponder()
-        gotTemp.resignFirstResponder()
-        calcP.resignFirstResponder()
-        
+        view.endEditing(true)
         
         // Checking that calibration selected - doesn't work!!!
         if selectedButton.titleLabel?.text == "" {

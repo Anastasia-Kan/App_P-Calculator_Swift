@@ -16,6 +16,7 @@ class DiaAnvilRamanVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var calcP: UIButton!
     @IBOutlet weak var note: UITextView!
     @IBOutlet weak var saveToLogBook: UIButton!
+    @IBOutlet weak var sampleName: UITextField!
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -23,11 +24,18 @@ class DiaAnvilRamanVC: UIViewController, UITextFieldDelegate {
         return true
     }
     
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        AmbientPressurePeak.resignFirstResponder()
-        MeasuredPeak.resignFirstResponder()
-        resultP.resignFirstResponder()
+        view.endEditing(true)
+        
+        if (AmbientPressurePeak.text == "") {
+            AmbientPressurePeak.text = "1333"
         }
+        if (MeasuredPeak.text == "") {
+            MeasuredPeak.text = "1333"
+        }
+
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +43,7 @@ class DiaAnvilRamanVC: UIViewController, UITextFieldDelegate {
         AmbientPressurePeak.delegate = self
         MeasuredPeak.delegate = self
         resultP.delegate = self
+        sampleName.delegate = self
         
         calcP.layer.cornerRadius = 10
         calcP.clipsToBounds = true
@@ -46,7 +55,8 @@ class DiaAnvilRamanVC: UIViewController, UITextFieldDelegate {
         }
     
     @IBAction func calculatePressure(_ sender: Any) {
-        
+        view.endEditing(true)
+
         // Checking that numbers entered
         guard let dia0 = Double(AmbientPressurePeak.text!) else {
             resultP.text = "Some value is missing"
