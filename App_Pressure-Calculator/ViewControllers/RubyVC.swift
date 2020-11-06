@@ -8,7 +8,7 @@
 import UIKit
 
 class CellClass: UITableViewCell {
-    }
+}
 
 class RubyVC: UIViewController {
     // Presenting all the TextFields and Buttons
@@ -22,6 +22,10 @@ class RubyVC: UIViewController {
     @IBOutlet weak var saveToLogBook: UIButton!
     @IBOutlet weak var sampleName: UITextField!
     
+    @IBOutlet weak var calibrationSegments: UISegmentedControl!
+    @IBOutlet weak var refTempScale: UISegmentedControl!
+    @IBOutlet weak var gotTempScale: UISegmentedControl!
+    
     // Add variables and constants
     let transparentView = UIView()
     let tableView = UITableView()
@@ -30,9 +34,42 @@ class RubyVC: UIViewController {
     
     var Pressure = 0.0
     
+    private var logBook: LogBook?
+    private var mainTBC: MainTabBarController?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(CellClass.self, forCellReuseIdentifier: "Cell")
+        
+        refRuby.delegate = self
+        refTemp.delegate = self
+        gotRuby.delegate = self
+        gotTemp.delegate = self
+        //sampleName.delegate = self
+        
+        calcP.layer.cornerRadius = 10
+        calcP.clipsToBounds = true
+        saveToLogBook.layer.cornerRadius = 10
+        saveToLogBook.clipsToBounds = true
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        
+        guard let temp = self.tabBarController as? MainTabBarController else {
+            fatalError("Smth is wrong")
+        }
+        self.mainTBC = temp   // saving link to MainTabBarController
+        self.logBook = mainTBC!.logBook  // saving link to LogBook
+        
+    }
+    
+    // "SampleName" field moves up when keyboard present
     @objc func adjustForKeyboard(notification: Notification) {
         guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
-
+        
         let keyboardScreenEndFrame = keyboardValue.cgRectValue
         let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
         
@@ -47,43 +84,18 @@ class RubyVC: UIViewController {
             }
             
         }
-
+        
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(CellClass.self, forCellReuseIdentifier: "Cell")
-        
-        refRuby.delegate = self
-        refTemp.delegate = self
-        gotRuby.delegate = self
-        gotTemp.delegate = self
-        //sampleName.delegate = self
-        
-        CalibrationBTN.layer.cornerRadius = 10
-        CalibrationBTN.clipsToBounds = true
-        calcP.layer.cornerRadius = 10
-        calcP.clipsToBounds = true
-        saveToLogBook.layer.cornerRadius = 10
-        saveToLogBook.clipsToBounds = true
-        
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-    }
-    
-    // Excluding all caracters except for decimal NUMBERS
-    
+    // Input info: Excluding all caracters except for decimal NUMBERS
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
+        
         let invalidCaracters = CharacterSet(charactersIn: "0123456789.").inverted
         
         return (string.rangeOfCharacter(from: invalidCaracters) == nil)
     }
     
-    // Selecting calibration: Nice Drop-down menu
+    // Selecting calibration: Drop-down menu
     func addTransparentView(frames: CGRect) {
         transparentView.frame = self.view.frame
         self.view.addSubview(transparentView)
@@ -108,7 +120,7 @@ class RubyVC: UIViewController {
         }, completion: nil)
     }
     
-    // Selecting calibration (cont): nice exit of selection
+    // Selecting calibration (cont): exit of selection
     @objc func removeTransparentView() {
         let frames = selectedButton.frame
         UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
@@ -160,12 +172,14 @@ class RubyVC: UIViewController {
         Pressure = sh2 * sh4
         return Pressure
     }
- 
+    
+    // MARK: - IBActions
+    
     @IBAction func calculateP(_ sender: Any) {
         
         view.endEditing(true)
         
-        // Checking that calibration selected - doesn't work!!!
+        // Checking that calibration selected
         if selectedButton.titleLabel?.text == "" {
             resultP.text = "Choose calibration"
             return
@@ -188,22 +202,22 @@ class RubyVC: UIViewController {
         if (690...800).contains(lambda0) {
             print("everything is ok")
         } else {print("something is wrong")
-                resultP.text = "Check your values"
-                return
+            resultP.text = "Check your values"
+            return
         }
         if (280...310).contains(RT) {
-                print("everything is ok")
-            } else {print("something is wrong")
-                    resultP.text = "Check your values"
-                    return
-            }
-        if (690...1500).contains(lambda) {
-                print("everything is ok")
+            print("everything is ok")
         } else {print("something is wrong")
-                resultP.text = "Check your values"
-                return
+            resultP.text = "Check your values"
+            return
         }
-
+        if (690...1500).contains(lambda) {
+            print("everything is ok")
+        } else {print("something is wrong")
+            resultP.text = "Check your values"
+            return
+        }
+        
         // Making T-corrections for lambda and lambda0
         let deltaT = T - 296
         let deltaTsqr = deltaT * deltaT
@@ -231,7 +245,7 @@ class RubyVC: UIViewController {
         }
         
         let lam = lambda - corrLambda
-
+        
         // Calculating pressure according to chosen equation with T-corrections
         if selectedButton.titleLabel?.text == "Mao (1986) hydrostatic" {
             Mao(A: 1904, B: 7.665, lambda: lam, lambda0: lam0)
@@ -246,19 +260,32 @@ class RubyVC: UIViewController {
         print(Pressure)
         let P = ((Pressure * 100).rounded()) / 100
         resultP.text = String(P)
-        }
+    }
     
 
+    
     @IBAction func save(_ sender: Any) {
-     view.endEditing(true)
-     
-     print(sampleName.text ?? "DAC-1")
-     print(resultP.text ?? "0.0")
+        view.endEditing(true)
+        
+        print(sampleName.text ?? "DAC-1")
+        print(resultP.text ?? "0.0")
+        
+        let value = resultP.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let sample = sampleName.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        if ((value?.isEmpty) == nil) || ((sample?.isEmpty) == nil) {
+            return
+        }
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM-dd"
+        let timeStamp = formatter.string(from: Date())
+        
+        // saving data to LogBook
+        self.logBook?.add(sampleName: sample!, dateTime: timeStamp, pressure: value!)
+        
+        self.resultP.text = ""
+        self.sampleName.text = ""
     }
- 
-    
-    
- }
+}
 
 // Selecting calibration (cont)
 extension RubyVC: UITableViewDelegate, UITableViewDataSource {
