@@ -19,8 +19,7 @@ class RubyVC: UIViewController {
     @IBOutlet weak var calcP: UIButton!
     @IBOutlet weak var resultP: UITextField!
     @IBOutlet weak var CalibrationBTN: UIButton!
-    @IBOutlet weak var saveToLogBook: UIButton!
-    @IBOutlet weak var sampleName: UITextField!
+
     
     @IBOutlet weak var calibrationSegments: UISegmentedControl!
     @IBOutlet weak var refTempScale: UISegmentedControl!
@@ -33,10 +32,7 @@ class RubyVC: UIViewController {
     var dataSource = [String]()
     
     var Pressure = 0.0
-    
-    private var logBook: LogBook?
-    private var mainTBC: MainTabBarController?
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -51,41 +47,8 @@ class RubyVC: UIViewController {
         
         calcP.layer.cornerRadius = 10
         calcP.clipsToBounds = true
-        saveToLogBook.layer.cornerRadius = 10
-        saveToLogBook.clipsToBounds = true
-        
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-        
-        guard let temp = self.tabBarController as? MainTabBarController else {
-            fatalError("Smth is wrong")
         }
-        self.mainTBC = temp   // saving link to MainTabBarController
-        self.logBook = mainTBC!.logBook  // saving link to LogBook
-        
-    }
     
-    // "SampleName" field moves up when keyboard present
-    @objc func adjustForKeyboard(notification: Notification) {
-        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
-        
-        let keyboardScreenEndFrame = keyboardValue.cgRectValue
-        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
-        
-        if notification.name == UIResponder.keyboardWillHideNotification {
-            let viewframe = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
-            view.frame = viewframe
-        } else {
-            if(sampleName.isFirstResponder)
-            {
-                let viewframe = CGRect(x: 0, y: -keyboardViewEndFrame.height, width: view.frame.width, height: view.frame.height)
-                view.frame = viewframe
-            }
-            
-        }
-        
-    }
     
     // Input info: Excluding all caracters except for decimal NUMBERS
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -262,29 +225,6 @@ class RubyVC: UIViewController {
         resultP.text = String(P)
     }
     
-
-    
-    @IBAction func save(_ sender: Any) {
-        view.endEditing(true)
-        
-        print(sampleName.text ?? "DAC-1")
-        print(resultP.text ?? "0.0")
-        
-        let value = resultP.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        let sample = sampleName.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        if ((value?.isEmpty) == nil) || ((sample?.isEmpty) == nil) {
-            return
-        }
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM-dd"
-        let timeStamp = formatter.string(from: Date())
-        
-        // saving data to LogBook
-        self.logBook?.add(sampleName: sample!, dateTime: timeStamp, pressure: value!)
-        
-        self.resultP.text = ""
-        self.sampleName.text = ""
-    }
 }
 
 // Selecting calibration (cont)
