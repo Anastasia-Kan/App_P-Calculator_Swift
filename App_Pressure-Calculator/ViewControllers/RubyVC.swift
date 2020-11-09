@@ -11,42 +11,49 @@ class CellClass: UITableViewCell {
 }
 
 class RubyVC: UIViewController {
-    // Presenting all the TextFields and Buttons
+    // MARK: — Outlets
     @IBOutlet weak var refRuby: UITextField!
     @IBOutlet weak var refTemp: UITextField!
     @IBOutlet weak var gotRuby: UITextField!
     @IBOutlet weak var gotTemp: UITextField!
     @IBOutlet weak var calcP: UIButton!
     @IBOutlet weak var resultP: UITextField!
-    @IBOutlet weak var CalibrationBTN: UIButton!
 
-    
     @IBOutlet weak var calibrationSegments: UISegmentedControl!
     @IBOutlet weak var refTempScale: UISegmentedControl!
     @IBOutlet weak var gotTempScale: UISegmentedControl!
     
-    // Add variables and constants
-    let transparentView = UIView()
-    let tableView = UITableView()
-    var selectedButton = UIButton()
-    var dataSource = [String]()
+    // MARK: — Variables and Constants
+    var selectedCalibration = ""
+    var refTScale = "C"
+    var gotTScale = "C"
     
     var Pressure = 0.0
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(CellClass.self, forCellReuseIdentifier: "Cell")
-        
         refRuby.delegate = self
         refTemp.delegate = self
         gotRuby.delegate = self
         gotTemp.delegate = self
-        //sampleName.delegate = self
         
         calcP.layer.cornerRadius = 10
         calcP.clipsToBounds = true
+        
+        if let selectedCalibration = UserDefaults.standard.value(forKey: "selectedCalibration"){
+                    let calibration = selectedCalibration as! Int
+                    calibrationSegments.selectedSegmentIndex = calibration
+                }
+        
+        if let refTempSelectedScale = UserDefaults.standard.value(forKey: "refTempSelectedScale"){
+                    let refTScale = refTempSelectedScale as! Int
+                    refTempScale.selectedSegmentIndex = refTScale
+                }
+        
+        if let gotTempSelectedScale = UserDefaults.standard.value(forKey: "gotTempSelectedScale"){
+                    let gotTScale = gotTempSelectedScale as! Int
+                    gotTempScale.selectedSegmentIndex = gotTScale
+                }
         }
     
     
@@ -57,48 +64,7 @@ class RubyVC: UIViewController {
         
         return (string.rangeOfCharacter(from: invalidCaracters) == nil)
     }
-    
-    // Selecting calibration: Drop-down menu
-    func addTransparentView(frames: CGRect) {
-        transparentView.frame = self.view.frame
-        self.view.addSubview(transparentView)
-        
-        tableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height + 5, width: frames.width, height: 0)
-        self.view.addSubview(tableView)
-        tableView.layer.cornerRadius = 5
-        
-        transparentView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
-        tableView.reloadData()
-        
-        let tapgesture = UITapGestureRecognizer(target: self, action: #selector(removeTransparentView))
-        transparentView.addGestureRecognizer(tapgesture)
-        transparentView.alpha = 0
-        
-        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
-            self.transparentView.alpha = 0.5
-            
-            let tableviewheight = CGFloat(self.dataSource.count * 50)
-            
-            self.tableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width, height: tableviewheight)
-        }, completion: nil)
-    }
-    
-    // Selecting calibration (cont): exit of selection
-    @objc func removeTransparentView() {
-        let frames = selectedButton.frame
-        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
-            self.transparentView.alpha = 0
-            self.tableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width, height: 0)
-        }, completion: nil)
-    }
-    
-    // Selecting calibration (cont): Making a choise
-    @IBAction func SelectCalibration(_ sender: Any) {
-        dataSource = ["Mao (1986) hydrostatic", "Mao (1986) non-hydrostatic", "Shen (2020)"]
-        selectedButton = CalibrationBTN
-        addTransparentView(frames: CalibrationBTN.frame)
-    }
-    
+
     // To dismiss Keybord
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
@@ -116,7 +82,7 @@ class RubyVC: UIViewController {
             gotTemp.text = "298"
         }
     }
-    // Mao's equation:
+    // MARK: — Equations
     func Mao(A : Double, B : Double, lambda : Double, lambda0 : Double) -> Double
     {   let m1 = A / B
         let m2 = lambda / lambda0
@@ -125,7 +91,7 @@ class RubyVC: UIViewController {
         Pressure = m4 - m1
         return Pressure
     }
-    // Shen's equation
+
     func Shen(A : Double, B : Double, lambda : Double, lambda0 : Double) -> Double
     {   let deltaLambda = lambda - lambda0
         let sh1 = deltaLambda / lambda0
@@ -138,12 +104,62 @@ class RubyVC: UIViewController {
     
     // MARK: - IBActions
     
+    @IBAction func selectingCalibration(_ sender: UISegmentedControl) {
+        UserDefaults.standard.set(sender.selectedSegmentIndex, forKey: "selectedCalibration")
+        print("1")
+        if(calibrationSegments.selectedSegmentIndex == 0)
+        { let segmentControl = UserDefaults.standard
+          selectedCalibration = "Mao-hydro"
+         }
+         else if(calibrationSegments.selectedSegmentIndex == 1)
+         {
+             let segmentControl = UserDefaults.standard
+            selectedCalibration = "Mao-non-hydro"
+         }
+         else if(calibrationSegments.selectedSegmentIndex == 2)
+         {
+             let segmentControl = UserDefaults.standard
+            selectedCalibration = "Shen"
+         }
+    }
+    
+    
+    @IBAction func selectingRefTempScale(_ sender: UISegmentedControl) {
+        UserDefaults.standard.set(sender.selectedSegmentIndex, forKey: "refTempselectedScale")
+        print("2")
+      
+        if(refTempScale.selectedSegmentIndex == 0)
+        { let refT = UserDefaults.standard
+          refTScale = "C"
+         }
+         else if(refTempScale.selectedSegmentIndex == 1)
+         {
+             let refT = UserDefaults.standard
+            refTScale = "K"
+         }
+    }
+    
+    
+    @IBAction func selectingGotTempScale(_ sender: UISegmentedControl) {
+        UserDefaults.standard.set(sender.selectedSegmentIndex, forKey: "gotTempselectedScale")
+        print("3")
+        if(gotTempScale.selectedSegmentIndex == 0)
+        { let gotT = UserDefaults.standard
+          gotTScale = "C"
+         }
+         else if(refTempScale.selectedSegmentIndex == 1)
+         {
+             let gotT = UserDefaults.standard
+            gotTScale = "K"
+         }
+    }
+    
     @IBAction func calculateP(_ sender: Any) {
         
         view.endEditing(true)
         
         // Checking that calibration selected
-        if selectedButton.titleLabel?.text == "" {
+        if selectedCalibration == "" {
             resultP.text = "Choose calibration"
             return
         }
@@ -210,43 +226,23 @@ class RubyVC: UIViewController {
         let lam = lambda - corrLambda
         
         // Calculating pressure according to chosen equation with T-corrections
-        if selectedButton.titleLabel?.text == "Mao (1986) hydrostatic" {
+        
+        if selectedCalibration == "Mao-hydro" {
             Mao(A: 1904, B: 7.665, lambda: lam, lambda0: lam0)
         }
-        if selectedButton.titleLabel?.text == "Mao (1986) non-hydrostatic" {
+        if selectedCalibration == "Mao-non-hydro" {
             Mao(A: 1904, B: 5, lambda: lam, lambda0: lam0)
         }
-        if selectedButton.titleLabel?.text == "Shen (2020)" {
+        if selectedCalibration == "Shen" {
             Shen(A: 1870, B: 5.63, lambda: lam, lambda0: lam0)
         }
+
         
         print(Pressure)
         let P = ((Pressure * 100).rounded()) / 100
         resultP.text = String(P)
     }
     
-}
-
-// Selecting calibration (cont)
-extension RubyVC: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = dataSource[indexPath.row]
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
-    }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedButton.setTitle(dataSource[indexPath.row], for: .normal)
-        removeTransparentView()
-    }
 }
 
 // Add TextField Delegates

@@ -7,29 +7,35 @@
 
 import UIKit
 
-class DiaAnvilRamanVC: UIViewController, UITextFieldDelegate {
+class DiamondVC: UIViewController, UITextFieldDelegate {
 
-   
+    // MARK: — Outlets
     @IBOutlet weak var AmbientPressurePeak: UITextField!
     @IBOutlet weak var MeasuredPeak: UITextField!
     @IBOutlet weak var resultP: UITextField!
     @IBOutlet weak var calcP: UIButton!
     @IBOutlet weak var note: UITextView!
     
+    
+    @IBOutlet weak var variationRaman: UISegmentedControl!
+    
+    // MARK: — Variables and Constants
+    var variation = "DiamondInside"
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
     
-
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
         view.endEditing(true)
         
-        if (AmbientPressurePeak.text == "") {
-            AmbientPressurePeak.text = "1333"
-        }
         if (MeasuredPeak.text == "") {
             MeasuredPeak.text = "1333"
+        if (AmbientPressurePeak.text == "") {
+                AmbientPressurePeak.text = "1333"
+            }
         }
 
     }
@@ -47,7 +53,36 @@ class DiaAnvilRamanVC: UIViewController, UITextFieldDelegate {
         note.layer.cornerRadius = 10
         note.clipsToBounds = true
         
+        if let variation = UserDefaults.standard.value(forKey: "selectedVariation"){
+            let selectedIndex = variation as! Int
+            variationRaman.selectedSegmentIndex = selectedIndex
+            }
+        
         }
+    
+    // MARK: - IBActions
+    
+    @IBAction func selectingVariation(_ sender: UISegmentedControl) {
+        UserDefaults.standard.set(sender.selectedSegmentIndex, forKey: "selectedVariation")
+        
+        if(variationRaman.selectedSegmentIndex == 0)
+        { let raman = UserDefaults.standard
+          variation = "DiamondInside"
+          print(variation)
+         }
+         else if(variationRaman.selectedSegmentIndex == 1)
+         {
+            let raman = UserDefaults.standard
+            variation = "DiamondAnvil"
+            AmbientPressurePeak.text = "1334"
+            MeasuredPeak.text = "1334"
+            print(variation)
+         }
+   }
+    
+    
+
+    
     
     @IBAction func calculatePressure(_ sender: Any) {
         view.endEditing(true)
@@ -76,6 +111,7 @@ class DiaAnvilRamanVC: UIViewController, UITextFieldDelegate {
             }
         
         // Calculating Pressure
+        if variation == "DiamondAnvil" {
         let diK = 547.0
         let diKp = 3.75
         
@@ -84,10 +120,21 @@ class DiaAnvilRamanVC: UIViewController, UITextFieldDelegate {
         let part2 = 0.5 * (diKp - 1)
         let part3 = 1 + (part2 * rat1)
         let pressure = part1 * part3
-        
-        print(pressure)
         let P = ((pressure * 100).rounded()) / 100
         resultP.text = String(P)
+
      }
-    
+        if variation == "DiamondInside" {
+            let a = -0.00275
+            let b = 2.61
+            let c = dia0 - dia
+            let D = (b * b) - (4 * a * c)
+            let routD = pow(D, 0.5)
+            let pressure = (-b + routD) / (2 * a)
+            let P = ((pressure * 100).rounded()) / 100
+            resultP.text = String(P)
+        }
+
+
+    }
 }

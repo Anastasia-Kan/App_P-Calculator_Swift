@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F3BBAB242559637B00E74F16 /* MainTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BBAB232559637B00E74F16 /* MainTabBarVC.swift */; };
 		F3C5CB9D253831900076C485 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5CB9C253831900076C485 /* AppDelegate.swift */; };
 		F3C5CB9F253831910076C485 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5CB9E253831910076C485 /* SceneDelegate.swift */; };
 		F3C5CBA1253831910076C485 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5CBA0253831910076C485 /* ViewController.swift */; };
@@ -14,11 +15,11 @@
 		F3C5CBA6253831930076C485 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3C5CBA5253831930076C485 /* Assets.xcassets */; };
 		F3C5CBA9253831930076C485 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3C5CBA7253831930076C485 /* LaunchScreen.storyboard */; };
 		F3C5CBB2253832FC0076C485 /* RubyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5CBB1253832FC0076C485 /* RubyVC.swift */; };
-		F3C5CBB52538332A0076C485 /* DiaAnvilRamanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5CBB42538332A0076C485 /* DiaAnvilRamanVC.swift */; };
-		F3C5CBB8253833500076C485 /* DiamondRamanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5CBB7253833500076C485 /* DiamondRamanVC.swift */; };
+		F3C5CBB52538332A0076C485 /* DiamondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5CBB42538332A0076C485 /* DiamondVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F3BBAB232559637B00E74F16 /* MainTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarVC.swift; sourceTree = "<group>"; };
 		F3C5CB99253831900076C485 /* App_Pressure-Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "App_Pressure-Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3C5CB9C253831900076C485 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3C5CB9E253831910076C485 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,8 +29,7 @@
 		F3C5CBA8253831930076C485 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3C5CBAA253831930076C485 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3C5CBB1253832FC0076C485 /* RubyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubyVC.swift; sourceTree = "<group>"; };
-		F3C5CBB42538332A0076C485 /* DiaAnvilRamanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaAnvilRamanVC.swift; sourceTree = "<group>"; };
-		F3C5CBB7253833500076C485 /* DiamondRamanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiamondRamanVC.swift; sourceTree = "<group>"; };
+		F3C5CBB42538332A0076C485 /* DiamondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiamondVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +54,8 @@
 			isa = PBXGroup;
 			children = (
 				F3C5CBB1253832FC0076C485 /* RubyVC.swift */,
-				F3C5CBB7253833500076C485 /* DiamondRamanVC.swift */,
-				F3C5CBB42538332A0076C485 /* DiaAnvilRamanVC.swift */,
+				F3C5CBB42538332A0076C485 /* DiamondVC.swift */,
+				F3BBAB232559637B00E74F16 /* MainTabBarVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -163,11 +163,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3C5CBA1253831910076C485 /* ViewController.swift in Sources */,
+				F3BBAB242559637B00E74F16 /* MainTabBarVC.swift in Sources */,
 				F3C5CB9D253831900076C485 /* AppDelegate.swift in Sources */,
-				F3C5CBB52538332A0076C485 /* DiaAnvilRamanVC.swift in Sources */,
+				F3C5CBB52538332A0076C485 /* DiamondVC.swift in Sources */,
 				F3C5CBB2253832FC0076C485 /* RubyVC.swift in Sources */,
 				F3C5CB9F253831910076C485 /* SceneDelegate.swift in Sources */,
-				F3C5CBB8253833500076C485 /* DiamondRamanVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
