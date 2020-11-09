@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main Tab Bar Controller-->
+        <!--Main Tab BarVC-->
         <scene sceneID="NAe-oT-u36">
             <objects>
-                <tabBarController id="N38-81-kna" customClass="MainTabBarController" customModule="App_Pressure_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="N38-81-kna" customClass="MainTabBarVC" customModule="App_Pressure_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kf0-BJ-nBX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
