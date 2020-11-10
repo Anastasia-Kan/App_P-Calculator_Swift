@@ -124,6 +124,26 @@
                                     <action selector="selectingVariation:" destination="grF-lX-3HB" eventType="valueChanged" id="Woa-a3-wXv"/>
                                 </connections>
                             </segmentedControl>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Raman signal should be measured at the center of culet. The &quot;measured position&quot; is the minimum of the Raman signal derivative" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2N0-wL-1dA">
+                                <rect key="frame" x="20" y="124" width="374" height="65"/>
+                                <color key="backgroundColor" red="1" green="0.83754597919999996" blue="0.68603175179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="3tQ-pU-Vf4"/>
+                                </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="It is not a Raman signal from an anvil, it is a peak from diamond inside the sample chamber." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iKS-uX-MrN">
+                                <rect key="frame" x="20" y="124" width="374" height="65"/>
+                                <color key="backgroundColor" red="1" green="0.83754597919999996" blue="0.68603175179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="F06-fV-cfI"/>
+                                </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XJ7-VL-DDo"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
@@ -133,11 +153,15 @@
                             <constraint firstItem="807-FT-o2o" firstAttribute="top" secondItem="qiC-1x-C9G" secondAttribute="bottom" constant="50" id="H4C-ja-moI"/>
                             <constraint firstItem="pdd-yG-hWz" firstAttribute="top" secondItem="i1e-Gn-7ke" secondAttribute="bottom" constant="50" id="JVe-R7-jcL"/>
                             <constraint firstItem="D4Z-KR-iiG" firstAttribute="leading" secondItem="XJ7-VL-DDo" secondAttribute="leading" constant="20" id="JYX-tC-BUk"/>
+                            <constraint firstItem="XJ7-VL-DDo" firstAttribute="trailing" secondItem="2N0-wL-1dA" secondAttribute="trailing" constant="20" id="Kot-kb-jgR"/>
                             <constraint firstItem="GyF-XG-ma7" firstAttribute="top" secondItem="pdd-yG-hWz" secondAttribute="bottom" constant="60" id="L5K-ol-rck"/>
                             <constraint firstItem="XJ7-VL-DDo" firstAttribute="trailing" secondItem="W5F-0u-htI" secondAttribute="trailing" constant="20" id="OLz-z3-9FQ"/>
                             <constraint firstItem="XJ7-VL-DDo" firstAttribute="trailing" secondItem="qiC-1x-C9G" secondAttribute="trailing" constant="20" id="QdQ-YF-ivN"/>
+                            <constraint firstItem="iKS-uX-MrN" firstAttribute="top" secondItem="XJ7-VL-DDo" secondAttribute="top" constant="80" id="RaP-GT-4Ct"/>
+                            <constraint firstItem="2N0-wL-1dA" firstAttribute="leading" secondItem="XJ7-VL-DDo" secondAttribute="leading" constant="20" id="SdW-JP-dr7"/>
                             <constraint firstItem="807-FT-o2o" firstAttribute="leading" secondItem="i1e-Gn-7ke" secondAttribute="trailing" constant="10" id="Xin-xf-rjU"/>
                             <constraint firstItem="D4Z-KR-iiG" firstAttribute="top" secondItem="pdd-yG-hWz" secondAttribute="bottom" constant="60" id="Y9Z-BW-2NI"/>
+                            <constraint firstItem="XJ7-VL-DDo" firstAttribute="trailing" secondItem="iKS-uX-MrN" secondAttribute="trailing" constant="20" id="ZgG-4A-dgt"/>
                             <constraint firstItem="L4p-Z7-5px" firstAttribute="leading" secondItem="XJ7-VL-DDo" secondAttribute="leading" constant="10" id="aBB-Ad-4KJ"/>
                             <constraint firstItem="i1e-Gn-7ke" firstAttribute="leading" secondItem="XJ7-VL-DDo" secondAttribute="leading" constant="10" id="fMS-VX-u0c"/>
                             <constraint firstItem="XJ7-VL-DDo" firstAttribute="trailing" secondItem="807-FT-o2o" secondAttribute="trailing" constant="20" id="hdO-0G-awZ"/>
@@ -146,6 +170,8 @@
                             <constraint firstItem="i1e-Gn-7ke" firstAttribute="top" secondItem="L4p-Z7-5px" secondAttribute="bottom" constant="50" id="vYP-1w-6PN"/>
                             <constraint firstItem="qiC-1x-C9G" firstAttribute="top" secondItem="XJ7-VL-DDo" secondAttribute="top" constant="200" id="wDK-rd-YzL"/>
                             <constraint firstItem="L4p-Z7-5px" firstAttribute="top" secondItem="XJ7-VL-DDo" secondAttribute="top" constant="200" id="wRz-Qh-JPU"/>
+                            <constraint firstItem="iKS-uX-MrN" firstAttribute="leading" secondItem="XJ7-VL-DDo" secondAttribute="leading" constant="20" id="y7s-t9-hxw"/>
+                            <constraint firstItem="2N0-wL-1dA" firstAttribute="top" secondItem="XJ7-VL-DDo" secondAttribute="top" constant="80" id="yFv-xz-Ocz"/>
                             <constraint firstItem="XJ7-VL-DDo" firstAttribute="trailing" secondItem="pdd-yG-hWz" secondAttribute="trailing" constant="20" id="ybL-ST-12I"/>
                             <constraint firstItem="XJ7-VL-DDo" firstAttribute="trailing" secondItem="GyF-XG-ma7" secondAttribute="trailing" constant="20" id="z9L-nh-Nsv"/>
                         </constraints>
@@ -155,59 +181,16 @@
                     <connections>
                         <outlet property="AmbientPressurePeak" destination="qiC-1x-C9G" id="aGc-T5-qYw"/>
                         <outlet property="MeasuredPeak" destination="807-FT-o2o" id="u9p-Gu-hyU"/>
-                        <outlet property="NoteAnvil" destination="g8F-OE-2b7" id="UYM-6U-M2b"/>
-                        <outlet property="NoteDiamond" destination="fJ6-ie-3m2" id="K8b-uf-UCC"/>
+                        <outlet property="NoteAnvil" destination="2N0-wL-1dA" id="frJ-xJ-AJW"/>
+                        <outlet property="NoteDiamond" destination="iKS-uX-MrN" id="ZOE-xt-N7K"/>
                         <outlet property="calcP" destination="pdd-yG-hWz" id="cyu-zb-O7c"/>
-                        <outlet property="note" destination="fJ6-ie-3m2" id="MsD-bj-pyh"/>
-                        <outlet property="note1" destination="fJ6-ie-3m2" id="bnX-mZ-Nhs"/>
                         <outlet property="resultP" destination="GyF-XG-ma7" id="ccG-le-idz"/>
                         <outlet property="variationRaman" destination="W5F-0u-htI" id="aiI-M1-V83"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aRy-y6-bsH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2574" y="692"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="vL6-2E-aOM">
-            <objects>
-                <viewController id="Puo-HG-a2I" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="vwN-x7-zOf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="It is not a Raman signal from an anvil, it is a peak from diamond inside the sample chamber." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fJ6-ie-3m2" userLabel="NoteDiamond">
-                                <rect key="frame" x="10" y="281" width="394" height="80"/>
-                                <color key="backgroundColor" red="1" green="0.83754597919999996" blue="0.68603175179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="xfb-yM-wjp"/>
-                                </constraints>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" editable="NO" text="Raman signal should be measured at the center of culet. The &quot;measured position&quot; is the minimum of the Raman signal derivative" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8F-OE-2b7" userLabel="NoteAnvil">
-                                <rect key="frame" x="10" y="139" width="394" height="80"/>
-                                <color key="backgroundColor" red="1" green="0.83754597919999996" blue="0.68603175179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" notEnabled="YES"/>
-                                </accessibility>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="QB7-Km-NQl"/>
-                                </constraints>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="YRZ-6Z-bSj"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7Zn-Sx-0zq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1893" y="692"/>
+            <point key="canvasLocation" x="-2536" y="692"/>
         </scene>
         <!--Ruby-->
         <scene sceneID="mV9-MX-tcS">
@@ -434,9 +417,6 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

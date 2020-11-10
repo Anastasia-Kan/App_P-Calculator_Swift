@@ -54,6 +54,7 @@ class RubyVC: UIViewController {
             let gotTScale = gotTempSelectedScale as! Int
                     gotTempScale.selectedSegmentIndex = gotTScale
                 }
+        selectingCalibration(calibrationSegments)
         }
     
     

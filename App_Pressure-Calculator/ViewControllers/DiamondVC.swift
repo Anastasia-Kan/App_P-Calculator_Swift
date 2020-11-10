@@ -15,6 +15,9 @@ class DiamondVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var resultP: UITextField!
     @IBOutlet weak var calcP: UIButton!
 
+    @IBOutlet var NoteAnvil: UITextView!
+    @IBOutlet var NoteDiamond: UITextView!
+    
     @IBOutlet weak var variationRaman: UISegmentedControl!
     
     // MARK: — Variables and Constants
@@ -51,6 +54,12 @@ class DiamondVC: UIViewController, UITextFieldDelegate {
         
         calcP.layer.cornerRadius = 10
         calcP.clipsToBounds = true
+        NoteAnvil.layer.cornerRadius = 10
+        NoteAnvil.clipsToBounds = true
+        NoteDiamond.layer.cornerRadius = 10
+        NoteDiamond.clipsToBounds = true
+        
+        selectingVariation(variationRaman)
 
         
         if let variation = UserDefaults.standard.value(forKey: "selectedVariation"){
@@ -70,6 +79,8 @@ class DiamondVC: UIViewController, UITextFieldDelegate {
             variation = "DiamondInside"
             AmbientPressurePeak.text = "1333"
             MeasuredPeak.text = "1333"
+            NoteAnvil.isHidden = true
+            NoteDiamond.isHidden = false
             print(variation)
          }
          else if(variationRaman.selectedSegmentIndex == 1)
@@ -78,6 +89,8 @@ class DiamondVC: UIViewController, UITextFieldDelegate {
             variation = "DiamondAnvil"
             AmbientPressurePeak.text = "1334"
             MeasuredPeak.text = "1334"
+            NoteAnvil.isHidden = false
+            NoteDiamond.isHidden = true
             print(variation)
          }
    }
