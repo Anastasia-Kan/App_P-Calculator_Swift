@@ -25,8 +25,8 @@ class RubyVC: UIViewController {
     
     // MARK: — Variables and Constants
     var selectedCalibration = ""
-    var refTScale = "C"
-    var gotTScale = "C"
+    var refTScale = ""
+    var gotTScale = ""
     
     var Pressure = 0.0
    
@@ -41,17 +41,17 @@ class RubyVC: UIViewController {
         calcP.clipsToBounds = true
         
         if let selectedCalibration = UserDefaults.standard.value(forKey: "selectedCalibration"){
-                    let calibration = selectedCalibration as! Int
+                    var calibration = selectedCalibration as! Int
                     calibrationSegments.selectedSegmentIndex = calibration
                 }
         
         if let refTempSelectedScale = UserDefaults.standard.value(forKey: "refTempSelectedScale"){
-                    let refTScale = refTempSelectedScale as! Int
+                    var refTScale = refTempSelectedScale as! Int
                     refTempScale.selectedSegmentIndex = refTScale
                 }
         
         if let gotTempSelectedScale = UserDefaults.standard.value(forKey: "gotTempSelectedScale"){
-                    let gotTScale = gotTempSelectedScale as! Int
+                    var gotTScale = gotTempSelectedScale as! Int
                     gotTempScale.selectedSegmentIndex = gotTScale
                 }
         }
@@ -72,16 +72,29 @@ class RubyVC: UIViewController {
         if (refRuby.text == "") {
             refRuby.text = "694.22"
         }
-        if (refTemp.text == "") {
-            refTemp.text = "298"
-        }
         if (gotRuby.text == "") {
             gotRuby.text = "694.22"
         }
+        if (refTemp.text == "") {
+           if (refTScale == "K") {
+            refTemp.text = "298"
+            }
+            if (refTScale == "C") {
+             refTemp.text = "25"
+             }
+        }
         if (gotTemp.text == "") {
-            gotTemp.text = "298"
+            if (gotTScale == "K") {
+             gotTemp.text = "298"
+             }
+             if (gotTScale == "C") {
+              gotTemp.text = "25"
+              }
         }
     }
+        
+        
+        
     // MARK: — Equations
     func Mao(A : Double, B : Double, lambda : Double, lambda0 : Double) -> Double
     {   let m1 = A / B
@@ -106,7 +119,7 @@ class RubyVC: UIViewController {
     
     @IBAction func selectingCalibration(_ sender: UISegmentedControl) {
         UserDefaults.standard.set(sender.selectedSegmentIndex, forKey: "selectedCalibration")
-        print("1")
+
         if(calibrationSegments.selectedSegmentIndex == 0)
         { let segmentControl = UserDefaults.standard
           selectedCalibration = "Mao-hydro"
@@ -125,8 +138,7 @@ class RubyVC: UIViewController {
     
     
     @IBAction func selectingRefTempScale(_ sender: UISegmentedControl) {
-        UserDefaults.standard.set(sender.selectedSegmentIndex, forKey: "refTempselectedScale")
-        print("2")
+        UserDefaults.standard.set(sender.selectedSegmentIndex, forKey: "refTempSelectedScale")
       
         if(refTempScale.selectedSegmentIndex == 0)
         { let refT = UserDefaults.standard
@@ -141,8 +153,8 @@ class RubyVC: UIViewController {
     
     
     @IBAction func selectingGotTempScale(_ sender: UISegmentedControl) {
-        UserDefaults.standard.set(sender.selectedSegmentIndex, forKey: "gotTempselectedScale")
-        print("3")
+        UserDefaults.standard.set(sender.selectedSegmentIndex, forKey: "gotTempSelectedScale")
+
         if(gotTempScale.selectedSegmentIndex == 0)
         { let gotT = UserDefaults.standard
           gotTScale = "C"
@@ -157,12 +169,7 @@ class RubyVC: UIViewController {
     @IBAction func calculateP(_ sender: Any) {
         
         view.endEditing(true)
-        
-        // Checking that calibration selected
-        if selectedCalibration == "" {
-            resultP.text = "Choose calibration"
-            return
-        }
+
         // Checking that numbers entered
         guard let lambda0 = Double(refRuby.text!) else {
             resultP.text = "Some value is missing"
@@ -184,7 +191,7 @@ class RubyVC: UIViewController {
             resultP.text = "Check your values"
             return
         }
-        if (280...310).contains(RT) {
+        if (10...310).contains(RT) {
             print("everything is ok")
         } else {print("something is wrong")
             resultP.text = "Check your values"
@@ -198,6 +205,7 @@ class RubyVC: UIViewController {
         }
         
         // Making T-corrections for lambda and lambda0
+        
         let deltaT = T - 296
         let deltaTsqr = deltaT * deltaT
         let deltaTcub = deltaT * deltaT * deltaT
@@ -206,6 +214,7 @@ class RubyVC: UIViewController {
         let deltaRTcub = deltaRT * deltaRT * deltaRT
         var corrLambda = -0.887
         var corrLambda0 = -0.887
+        
         
         if (50...296).contains(RT){
             corrLambda0 = (0.00664 * deltaRT) + (6.76e-6 * deltaRTsqr) - (2.33e-8 * deltaRTcub)
@@ -241,7 +250,8 @@ class RubyVC: UIViewController {
         print(Pressure)
         let P = ((Pressure * 100).rounded()) / 100
         resultP.text = String(P)
-    }
+        }
+    
     
 }
 
