@@ -111,7 +111,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="Raman signal should be measured at the center of culet. The &quot;measured position&quot; is the minimum of the Raman signal derivative" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8F-OE-2b7">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="Raman signal should be measured at the center of culet. The &quot;measured position&quot; is the minimum of the Raman signal derivative" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8F-OE-2b7" userLabel="NoteAnvil">
                                 <rect key="frame" x="10" y="124" width="394" height="80"/>
                                 <color key="backgroundColor" red="1" green="0.83754597919999996" blue="0.68603175179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -138,12 +138,24 @@
                                     <action selector="selectingVariation:" destination="grF-lX-3HB" eventType="valueChanged" id="Woa-a3-wXv"/>
                                 </connections>
                             </segmentedControl>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="It is not a Raman signal from an anvil, it is a peak from diamond inside the sample chamber." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fJ6-ie-3m2" userLabel="NoteDiamond">
+                                <rect key="frame" x="10" y="244" width="394" height="80"/>
+                                <color key="backgroundColor" red="1" green="0.83754597919999996" blue="0.68603175179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="xfb-yM-wjp"/>
+                                </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XJ7-VL-DDo"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
+                            <constraint firstItem="fJ6-ie-3m2" firstAttribute="leading" secondItem="XJ7-VL-DDo" secondAttribute="leading" constant="10" id="6EG-qk-uuU"/>
                             <constraint firstItem="pdd-yG-hWz" firstAttribute="leading" secondItem="XJ7-VL-DDo" secondAttribute="leading" constant="20" id="EXS-f0-re3"/>
                             <constraint firstItem="g8F-OE-2b7" firstAttribute="leading" secondItem="XJ7-VL-DDo" secondAttribute="leading" constant="10" id="Ed0-wU-d5V"/>
+                            <constraint firstItem="fJ6-ie-3m2" firstAttribute="top" secondItem="XJ7-VL-DDo" secondAttribute="top" constant="80" id="GfV-1h-40P"/>
                             <constraint firstItem="W5F-0u-htI" firstAttribute="leading" secondItem="XJ7-VL-DDo" secondAttribute="leading" constant="20" id="GoW-ik-JKq"/>
                             <constraint firstItem="XJ7-VL-DDo" firstAttribute="trailing" secondItem="g8F-OE-2b7" secondAttribute="trailing" constant="10" id="GzZ-vs-IHb"/>
                             <constraint firstItem="807-FT-o2o" firstAttribute="top" secondItem="qiC-1x-C9G" secondAttribute="bottom" constant="50" id="H4C-ja-moI"/>
@@ -160,6 +172,7 @@
                             <constraint firstItem="XJ7-VL-DDo" firstAttribute="trailing" secondItem="807-FT-o2o" secondAttribute="trailing" constant="20" id="hdO-0G-awZ"/>
                             <constraint firstItem="W5F-0u-htI" firstAttribute="top" secondItem="XJ7-VL-DDo" secondAttribute="top" constant="20" id="jDp-l2-CRU"/>
                             <constraint firstItem="qiC-1x-C9G" firstAttribute="leading" secondItem="L4p-Z7-5px" secondAttribute="trailing" constant="10" id="lHK-ju-f89"/>
+                            <constraint firstItem="XJ7-VL-DDo" firstAttribute="trailing" secondItem="fJ6-ie-3m2" secondAttribute="trailing" constant="10" id="vGl-av-BlX"/>
                             <constraint firstItem="i1e-Gn-7ke" firstAttribute="top" secondItem="L4p-Z7-5px" secondAttribute="bottom" constant="50" id="vYP-1w-6PN"/>
                             <constraint firstItem="qiC-1x-C9G" firstAttribute="top" secondItem="XJ7-VL-DDo" secondAttribute="top" constant="200" id="wDK-rd-YzL"/>
                             <constraint firstItem="L4p-Z7-5px" firstAttribute="top" secondItem="XJ7-VL-DDo" secondAttribute="top" constant="200" id="wRz-Qh-JPU"/>
@@ -172,15 +185,18 @@
                     <connections>
                         <outlet property="AmbientPressurePeak" destination="qiC-1x-C9G" id="aGc-T5-qYw"/>
                         <outlet property="MeasuredPeak" destination="807-FT-o2o" id="u9p-Gu-hyU"/>
+                        <outlet property="NoteAnvil" destination="g8F-OE-2b7" id="UYM-6U-M2b"/>
+                        <outlet property="NoteDiamond" destination="fJ6-ie-3m2" id="K8b-uf-UCC"/>
                         <outlet property="calcP" destination="pdd-yG-hWz" id="cyu-zb-O7c"/>
-                        <outlet property="note" destination="g8F-OE-2b7" id="xcz-gi-SK7"/>
+                        <outlet property="note" destination="fJ6-ie-3m2" id="MsD-bj-pyh"/>
+                        <outlet property="note1" destination="fJ6-ie-3m2" id="bnX-mZ-Nhs"/>
                         <outlet property="resultP" destination="GyF-XG-ma7" id="ccG-le-idz"/>
                         <outlet property="variationRaman" destination="W5F-0u-htI" id="aiI-M1-V83"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aRy-y6-bsH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2452" y="585"/>
+            <point key="canvasLocation" x="-2574" y="692"/>
         </scene>
         <!--Ruby-->
         <scene sceneID="mV9-MX-tcS">
@@ -250,7 +266,7 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="bezel" placeholder="0 - 320" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vJV-Vm-pEh">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="298" borderStyle="bezel" placeholder="0 - 320" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vJV-Vm-pEh">
                                 <rect key="frame" x="244" y="203" width="120" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -260,7 +276,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="bezel" placeholder="0 - 5000" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="MLd-fw-1ab">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="298" borderStyle="bezel" placeholder="0  - 5000" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="MLd-fw-1ab">
                                 <rect key="frame" x="244" y="363" width="120" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -403,7 +419,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wKr-G0-2OT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2452" y="-329"/>
+            <point key="canvasLocation" x="-2229" y="-351"/>
         </scene>
     </scenes>
     <resources>

@@ -41,17 +41,17 @@ class RubyVC: UIViewController {
         calcP.clipsToBounds = true
         
         if let selectedCalibration = UserDefaults.standard.value(forKey: "selectedCalibration"){
-                    var calibration = selectedCalibration as! Int
+                    let calibration = selectedCalibration as! Int
                     calibrationSegments.selectedSegmentIndex = calibration
                 }
         
         if let refTempSelectedScale = UserDefaults.standard.value(forKey: "refTempSelectedScale"){
-                    var refTScale = refTempSelectedScale as! Int
+            let refTScale = refTempSelectedScale as! Int
                     refTempScale.selectedSegmentIndex = refTScale
                 }
         
         if let gotTempSelectedScale = UserDefaults.standard.value(forKey: "gotTempSelectedScale"){
-                    var gotTScale = gotTempSelectedScale as! Int
+            let gotTScale = gotTempSelectedScale as! Int
                     gotTempScale.selectedSegmentIndex = gotTScale
                 }
         }
@@ -60,7 +60,7 @@ class RubyVC: UIViewController {
     // Input info: Excluding all caracters except for decimal NUMBERS
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        let invalidCaracters = CharacterSet(charactersIn: "0123456789.").inverted
+        let invalidCaracters = CharacterSet(charactersIn: "0123456789.-").inverted
         
         return (string.rangeOfCharacter(from: invalidCaracters) == nil)
     }
@@ -174,15 +174,21 @@ class RubyVC: UIViewController {
         guard let lambda0 = Double(refRuby.text!) else {
             resultP.text = "Some value is missing"
             return}
-        guard let RT = Double(refTemp.text!) else {
+        guard var RT = Double(refTemp.text!) else {
             resultP.text = "Some value is missing"
             return}
         guard let lambda = Double(gotRuby.text!) else {
             resultP.text = "Some value is missing"
             return}
-        guard let T = Double(gotTemp.text!) else {
+        guard var T = Double(gotTemp.text!) else {
             resultP.text = "Some value is missing"
             return}
+        if (gotTScale == "C") {
+             T += 273
+            }
+        if (refTScale == "C") {
+             RT += 273
+            }
         
         // Checking that all the numbers are in allowed ranges
         if (690...800).contains(lambda0) {
