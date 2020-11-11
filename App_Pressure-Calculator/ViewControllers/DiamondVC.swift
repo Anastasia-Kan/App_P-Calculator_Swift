@@ -66,7 +66,6 @@ class DiamondVC: UIViewController, UITextFieldDelegate {
             let selectedIndex = variation as! Int
             variationRaman.selectedSegmentIndex = selectedIndex
             }
-        
         }
     
     // MARK: - IBActions
@@ -81,7 +80,6 @@ class DiamondVC: UIViewController, UITextFieldDelegate {
             MeasuredPeak.text = "1333"
             NoteAnvil.isHidden = true
             NoteDiamond.isHidden = false
-            print(variation)
          }
          else if(variationRaman.selectedSegmentIndex == 1)
          {
@@ -91,14 +89,9 @@ class DiamondVC: UIViewController, UITextFieldDelegate {
             MeasuredPeak.text = "1334"
             NoteAnvil.isHidden = false
             NoteDiamond.isHidden = true
-            print(variation)
          }
    }
-    
-    
 
-    
-    
     @IBAction func calculatePressure(_ sender: Any) {
         view.endEditing(true)
 
@@ -113,15 +106,11 @@ class DiamondVC: UIViewController, UITextFieldDelegate {
         
         // Checking that all the numbers are in allowed ranges
         if (1200...2500).contains(dia0) {
-            print("everything is ok")
-        } else {print("something is wrong")
-                resultP.text = "Check your values"
+            print("everything is ok")} else {resultP.text = "Check your values"
                 return
         }
         if (1200...2500).contains(dia0) {
-                print("everything is ok")
-            } else {print("something is wrong")
-                    resultP.text = "Check your values"
+                print("everything is ok") } else {resultP.text = "Check your values"
                     return
             }
         
@@ -149,7 +138,5 @@ class DiamondVC: UIViewController, UITextFieldDelegate {
             let P = ((pressure * 100).rounded()) / 100
             resultP.text = String(P)
         }
-
-
     }
 }

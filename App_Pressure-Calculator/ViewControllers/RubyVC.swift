@@ -122,17 +122,16 @@ class RubyVC: UIViewController {
         UserDefaults.standard.set(sender.selectedSegmentIndex, forKey: "selectedCalibration")
 
         if(calibrationSegments.selectedSegmentIndex == 0)
-        { let segmentControl = UserDefaults.standard
+        {
+          let segmentControl = UserDefaults.standard
           selectedCalibration = "Mao-hydro"
          }
          else if(calibrationSegments.selectedSegmentIndex == 1)
-         {
-             let segmentControl = UserDefaults.standard
+         {  let segmentControl = UserDefaults.standard
             selectedCalibration = "Mao-non-hydro"
          }
          else if(calibrationSegments.selectedSegmentIndex == 2)
-         {
-             let segmentControl = UserDefaults.standard
+         {  let segmentControl = UserDefaults.standard
             selectedCalibration = "Shen"
          }
     }
@@ -146,9 +145,8 @@ class RubyVC: UIViewController {
           refTScale = "C"
          }
          else if(refTempScale.selectedSegmentIndex == 1)
-         {
-             let refT = UserDefaults.standard
-            refTScale = "K"
+         { let refT = UserDefaults.standard
+           refTScale = "K"
          }
     }
     
@@ -161,8 +159,7 @@ class RubyVC: UIViewController {
           gotTScale = "C"
          }
          else if(refTempScale.selectedSegmentIndex == 1)
-         {
-             let gotT = UserDefaults.standard
+         {  let gotT = UserDefaults.standard
             gotTScale = "K"
          }
     }
@@ -252,14 +249,10 @@ class RubyVC: UIViewController {
         if selectedCalibration == "Shen" {
             Shen(A: 1870, B: 5.63, lambda: lam, lambda0: lam0)
         }
-
-        
-        print(Pressure)
+ 
         let P = ((Pressure * 100).rounded()) / 100
         resultP.text = String(P)
-        }
-    
-    
+    }
 }
 
 // Add TextField Delegates
