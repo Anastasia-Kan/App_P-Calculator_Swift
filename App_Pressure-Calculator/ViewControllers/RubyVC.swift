@@ -57,13 +57,15 @@ class RubyVC: UIViewController {
         selectingCalibration(calibrationSegments)
         }
     
-    
+
     // Input info: Excluding all caracters except for decimal NUMBERS
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        let invalidCaracters = CharacterSet(charactersIn: "0123456789.-").inverted
+
+        let invalidCaracters = CharacterSet(charactersIn: "0123456789.-,").inverted
         
         return (string.rangeOfCharacter(from: invalidCaracters) == nil)
+
     }
 
     // To dismiss Keybord
@@ -164,20 +166,32 @@ class RubyVC: UIViewController {
          }
     }
     
+    func replace (_ textField: UITextField) -> String {
+        let textDouble = Double(textField.text!.replacingOccurrences(of: ",", with: ".")) ?? 0
+        return String(format: "%.2f", textDouble)
+    
+    }
+    
     @IBAction func calculateP(_ sender: Any) {
         
         view.endEditing(true)
 
         // Checking that numbers entered
+        /*let str = textField.text
+        let replace = Double(str!.replacingOccurrences(of: ",", with: ".")) ?? 0*/
+        replace(refRuby)
         guard let lambda0 = Double(refRuby.text!) else {
             resultP.text = "Some value is missing"
             return}
+        replace(refTemp)
         guard var RT = Double(refTemp.text!) else {
             resultP.text = "Some value is missing"
             return}
+        replace(gotRuby)
         guard let lambda = Double(gotRuby.text!) else {
             resultP.text = "Some value is missing"
             return}
+        replace(gotTemp)
         guard var T = Double(gotTemp.text!) else {
             resultP.text = "Some value is missing"
             return}
