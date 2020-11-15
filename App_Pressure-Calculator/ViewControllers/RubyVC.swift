@@ -61,17 +61,14 @@ class RubyVC: UIViewController {
     // Input info: Excluding all caracters except for decimal NUMBERS
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-
         let invalidCaracters = CharacterSet(charactersIn: "0123456789.-,").inverted
-        
         return (string.rangeOfCharacter(from: invalidCaracters) == nil)
-
     }
 
     // To dismiss Keybord
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
-        
+       
         if (refRuby.text == "") {
             refRuby.text = "694.22"
         }
@@ -166,35 +163,28 @@ class RubyVC: UIViewController {
          }
     }
     
-    func replace (_ textField: UITextField) -> String {
-        let textDouble = Double(textField.text!.replacingOccurrences(of: ",", with: ".")) ?? 0
-        return String(format: "%.2f", textDouble)
-    
-    }
-    
     @IBAction func calculateP(_ sender: Any) {
         
         view.endEditing(true)
-
-        // Checking that numbers entered
-        /*let str = textField.text
-        let replace = Double(str!.replacingOccurrences(of: ",", with: ".")) ?? 0*/
-        replace(refRuby)
-        guard let lambda0 = Double(refRuby.text!) else {
+        
+        
+        var lambda0 = Double(refRuby.text!.doubleValue)
+        /*guard var lambda0 = Double(refRuby.text!) else {
             resultP.text = "Some value is missing"
-            return}
-        replace(refTemp)
-        guard var RT = Double(refTemp.text!) else {
+            return}*/
+        var RT = Double(refTemp.text!.doubleValue)
+        /*guard var RT = Double(refTemp.text!) else {
             resultP.text = "Some value is missing"
-            return}
-        replace(gotRuby)
-        guard let lambda = Double(gotRuby.text!) else {
+            return}*/
+        var lambda = Double(gotRuby.text!.doubleValue)
+        /*guard var lambda = Double(gotRuby.text!) else {
             resultP.text = "Some value is missing"
-            return}
-        replace(gotTemp)
-        guard var T = Double(gotTemp.text!) else {
+            return} */
+        var T = Double(gotTemp.text!.doubleValue)
+        /*guard var T = Double(gotTemp.text!) else {
             resultP.text = "Some value is missing"
-            return}
+            return}*/
+ 
         if (gotTScale == "C") {
              T += 273
             }
@@ -275,6 +265,22 @@ extension RubyVC : UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+extension String {
+    static let numberFormatter = NumberFormatter()
+    var doubleValue: Double {
+        String.numberFormatter.decimalSeparator = "."
+        if let result =  String.numberFormatter.number(from: self) {
+            return result.doubleValue
+        } else {
+            String.numberFormatter.decimalSeparator = ","
+            if let result = String.numberFormatter.number(from: self) {
+                return result.doubleValue
+            }
+        }
+        return 0
     }
 }
 
