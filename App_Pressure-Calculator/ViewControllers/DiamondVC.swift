@@ -96,12 +96,17 @@ class DiamondVC: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
 
         // Checking that numbers entered
-        guard let dia0 = Double(AmbientPressurePeak.text!) else {
+        
+        var dia0 = Double(AmbientPressurePeak.text!.doubleValue)
+        var dia = Double(MeasuredPeak.text!.doubleValue)
+        
+        
+        /*guard let dia0 = Double(AmbientPressurePeak.text!) else {
             resultP.text = "Some value is missing"
             return}
         guard let dia = Double(MeasuredPeak.text!) else {
             resultP.text = "Some value is missing"
-            return}
+            return}*/
         
         
         // Checking that all the numbers are in allowed ranges
@@ -140,3 +145,4 @@ class DiamondVC: UIViewController, UITextFieldDelegate {
         }
     }
 }
+

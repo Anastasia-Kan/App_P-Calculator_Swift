@@ -18,6 +18,19 @@
 		F3C5CBB52538332A0076C485 /* DiamondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5CBB42538332A0076C485 /* DiamondVC.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		F3D727E42561C5C2009E316D /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		F3BBAB232559637B00E74F16 /* MainTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarVC.swift; sourceTree = "<group>"; };
 		F3C5CB99253831900076C485 /* App_Pressure-Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "App_Pressure-Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -30,6 +43,9 @@
 		F3C5CBAA253831930076C485 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3C5CBB1253832FC0076C485 /* RubyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubyVC.swift; sourceTree = "<group>"; };
 		F3C5CBB42538332A0076C485 /* DiamondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiamondVC.swift; sourceTree = "<group>"; };
+		F3D727DB2561C5C2009E316D /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		F3D727DD2561C5C2009E316D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3D727E72561C66F009E316D /* CustomKeyboard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomKeyboard.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				F3C5CB9B253831900076C485 /* App_Pressure-Calculator */,
+				F3D727DA2561C5C2009E316D /* CustomKeyboard */,
 				F3C5CB9A253831900076C485 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,6 +109,16 @@
 			path = "App_Pressure-Calculator";
 			sourceTree = "<group>";
 		};
+		F3D727DA2561C5C2009E316D /* CustomKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				F3D727DB2561C5C2009E316D /* KeyboardViewController.swift */,
+				F3D727DD2561C5C2009E316D /* Info.plist */,
+				F3D727E72561C66F009E316D /* CustomKeyboard.xib */,
+			);
+			path = CustomKeyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -102,6 +129,7 @@
 				F3C5CB95253831900076C485 /* Sources */,
 				F3C5CB96253831900076C485 /* Frameworks */,
 				F3C5CB97253831900076C485 /* Resources */,
+				F3D727E42561C5C2009E316D /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -118,7 +146,7 @@
 		F3C5CB91253831900076C485 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1200;
+				LastSwiftUpdateCheck = 1210;
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
 					F3C5CB98253831900076C485 = {
@@ -312,10 +340,11 @@
 		F3C5CBAE253831930076C485 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1.0.2;
+				CURRENT_PROJECT_VERSION = 1.0.3;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "App_Pressure-Calculator/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -323,7 +352,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "se.anastasiakantor.App-Pressure-Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -335,11 +364,12 @@
 		F3C5CBAF253831930076C485 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.2;
+				CURRENT_PROJECT_VERSION = 1.0.3;
 				DEVELOPMENT_TEAM = DLRHSAK2CJ;
 				INFOPLIST_FILE = "App_Pressure-Calculator/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -347,7 +377,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "se.anastasiakantor.App-Pressure-Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
