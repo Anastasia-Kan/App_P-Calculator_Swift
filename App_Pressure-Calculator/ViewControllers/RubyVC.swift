@@ -62,9 +62,14 @@ class RubyVC: UIViewController {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         let invalidCaracters = CharacterSet(charactersIn: "0123456789.-,").inverted
+        
         return (string.rangeOfCharacter(from: invalidCaracters) == nil)
     }
-
+    
+    /*func textChanged(_ sender: UITextField) {
+        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+       }*/
+   
     // To dismiss Keybord
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
@@ -169,22 +174,13 @@ class RubyVC: UIViewController {
         
         
         var lambda0 = Double(refRuby.text!.doubleValue)
-        /*guard var lambda0 = Double(refRuby.text!) else {
-            resultP.text = "Some value is missing"
-            return}*/
+
         var RT = Double(refTemp.text!.doubleValue)
-        /*guard var RT = Double(refTemp.text!) else {
-            resultP.text = "Some value is missing"
-            return}*/
+
         var lambda = Double(gotRuby.text!.doubleValue)
-        /*guard var lambda = Double(gotRuby.text!) else {
-            resultP.text = "Some value is missing"
-            return} */
+
         var T = Double(gotTemp.text!.doubleValue)
-        /*guard var T = Double(gotTemp.text!) else {
-            resultP.text = "Some value is missing"
-            return}*/
- 
+
         if (gotTScale == "C") {
              T += 273
             }

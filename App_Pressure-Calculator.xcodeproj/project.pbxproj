@@ -43,9 +43,6 @@
 		F3C5CBAA253831930076C485 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3C5CBB1253832FC0076C485 /* RubyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubyVC.swift; sourceTree = "<group>"; };
 		F3C5CBB42538332A0076C485 /* DiamondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiamondVC.swift; sourceTree = "<group>"; };
-		F3D727DB2561C5C2009E316D /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
-		F3D727DD2561C5C2009E316D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F3D727E72561C66F009E316D /* CustomKeyboard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomKeyboard.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +77,6 @@
 			isa = PBXGroup;
 			children = (
 				F3C5CB9B253831900076C485 /* App_Pressure-Calculator */,
-				F3D727DA2561C5C2009E316D /* CustomKeyboard */,
 				F3C5CB9A253831900076C485 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -107,16 +103,6 @@
 				F3C5CBAA253831930076C485 /* Info.plist */,
 			);
 			path = "App_Pressure-Calculator";
-			sourceTree = "<group>";
-		};
-		F3D727DA2561C5C2009E316D /* CustomKeyboard */ = {
-			isa = PBXGroup;
-			children = (
-				F3D727DB2561C5C2009E316D /* KeyboardViewController.swift */,
-				F3D727DD2561C5C2009E316D /* Info.plist */,
-				F3D727E72561C66F009E316D /* CustomKeyboard.xib */,
-			);
-			path = CustomKeyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,7 +330,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1.0.3;
+				CURRENT_PROJECT_VERSION = 1.1.1;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "App_Pressure-Calculator/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -352,7 +338,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "se.anastasiakantor.App-Pressure-Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -369,7 +355,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.3;
+				CURRENT_PROJECT_VERSION = 1.1.1;
 				DEVELOPMENT_TEAM = DLRHSAK2CJ;
 				INFOPLIST_FILE = "App_Pressure-Calculator/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -377,7 +363,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "se.anastasiakantor.App-Pressure-Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
