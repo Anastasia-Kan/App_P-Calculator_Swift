@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F3A6DE95256E6139009E6C36 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A6DE94256E6139009E6C36 /* KeyboardViewController.swift */; };
-		F3A6DE99256E6139009E6C36 /* ScientificKB.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F3A6DE92256E6138009E6C36 /* ScientificKB.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		F3A6DEA0256E61EA009E6C36 /* Sci-Keyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3A6DE9F256E61E9009E6C36 /* Sci-Keyboard.xib */; };
 		F3BBAB242559637B00E74F16 /* MainTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BBAB232559637B00E74F16 /* MainTabBarVC.swift */; };
 		F3C5CB9D253831900076C485 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5CB9C253831900076C485 /* AppDelegate.swift */; };
 		F3C5CB9F253831910076C485 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5CB9E253831910076C485 /* SceneDelegate.swift */; };
@@ -21,16 +18,6 @@
 		F3C5CBB52538332A0076C485 /* DiamondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5CBB42538332A0076C485 /* DiamondVC.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		F3A6DE97256E6139009E6C36 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F3C5CB91253831900076C485 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F3A6DE91256E6138009E6C36;
-			remoteInfo = ScientificKB;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		F3D727E42561C5C2009E316D /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -38,7 +25,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				F3A6DE99256E6139009E6C36 /* ScientificKB.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,10 +32,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		F3A6DE92256E6138009E6C36 /* ScientificKB.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ScientificKB.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		F3A6DE94256E6139009E6C36 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
-		F3A6DE96256E6139009E6C36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F3A6DE9F256E61E9009E6C36 /* Sci-Keyboard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "Sci-Keyboard.xib"; sourceTree = "<group>"; };
 		F3BBAB232559637B00E74F16 /* MainTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarVC.swift; sourceTree = "<group>"; };
 		F3C5CB99253831900076C485 /* App_Pressure-Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "App_Pressure-Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3C5CB9C253831900076C485 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,13 +46,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F3A6DE8F256E6138009E6C36 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F3C5CB96253831900076C485 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -81,16 +56,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F3A6DE93256E6139009E6C36 /* ScientificKB */ = {
-			isa = PBXGroup;
-			children = (
-				F3A6DE94256E6139009E6C36 /* KeyboardViewController.swift */,
-				F3A6DE96256E6139009E6C36 /* Info.plist */,
-				F3A6DE9F256E61E9009E6C36 /* Sci-Keyboard.xib */,
-			);
-			path = ScientificKB;
-			sourceTree = "<group>";
-		};
 		F3BBAAC32551627800E74F16 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,7 +77,6 @@
 			isa = PBXGroup;
 			children = (
 				F3C5CB9B253831900076C485 /* App_Pressure-Calculator */,
-				F3A6DE93256E6139009E6C36 /* ScientificKB */,
 				F3C5CB9A253831900076C485 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -121,7 +85,6 @@
 			isa = PBXGroup;
 			children = (
 				F3C5CB99253831900076C485 /* App_Pressure-Calculator.app */,
-				F3A6DE92256E6138009E6C36 /* ScientificKB.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -145,23 +108,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F3A6DE91256E6138009E6C36 /* ScientificKB */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F3A6DE9C256E6139009E6C36 /* Build configuration list for PBXNativeTarget "ScientificKB" */;
-			buildPhases = (
-				F3A6DE8E256E6138009E6C36 /* Sources */,
-				F3A6DE8F256E6138009E6C36 /* Frameworks */,
-				F3A6DE90256E6138009E6C36 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ScientificKB;
-			productName = ScientificKB;
-			productReference = F3A6DE92256E6138009E6C36 /* ScientificKB.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		F3C5CB98253831900076C485 /* App_Pressure-Calculator */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F3C5CBAD253831930076C485 /* Build configuration list for PBXNativeTarget "App_Pressure-Calculator" */;
@@ -174,7 +120,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				F3A6DE98256E6139009E6C36 /* PBXTargetDependency */,
 			);
 			name = "App_Pressure-Calculator";
 			productName = "App_Pressure-Calculator";
@@ -190,9 +135,6 @@
 				LastSwiftUpdateCheck = 1220;
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
-					F3A6DE91256E6138009E6C36 = {
-						CreatedOnToolsVersion = 12.2;
-					};
 					F3C5CB98253831900076C485 = {
 						CreatedOnToolsVersion = 12.0.1;
 					};
@@ -212,20 +154,11 @@
 			projectRoot = "";
 			targets = (
 				F3C5CB98253831900076C485 /* App_Pressure-Calculator */,
-				F3A6DE91256E6138009E6C36 /* ScientificKB */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		F3A6DE90256E6138009E6C36 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F3A6DEA0256E61EA009E6C36 /* Sci-Keyboard.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F3C5CB97253831900076C485 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -239,14 +172,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		F3A6DE8E256E6138009E6C36 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F3A6DE95256E6139009E6C36 /* KeyboardViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F3C5CB95253831900076C485 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -261,14 +186,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		F3A6DE98256E6139009E6C36 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F3A6DE91256E6138009E6C36 /* ScientificKB */;
-			targetProxy = F3A6DE97256E6139009E6C36 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F3C5CBA2253831910076C485 /* Main.storyboard */ = {
@@ -290,47 +207,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		F3A6DE9A256E6139009E6C36 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = ScientificKB/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "se.anastasiakantor.App-Pressure-Calculator.ScientificKB";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		F3A6DE9B256E6139009E6C36 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DLRHSAK2CJ;
-				INFOPLIST_FILE = ScientificKB/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "se.anastasiakantor.App-Pressure-Calculator.ScientificKB";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		F3C5CBAB253831930076C485 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -450,7 +326,6 @@
 		F3C5CBAE253831930076C485 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Manual;
@@ -474,7 +349,6 @@
 		F3C5CBAF253831930076C485 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -499,15 +373,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F3A6DE9C256E6139009E6C36 /* Build configuration list for PBXNativeTarget "ScientificKB" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F3A6DE9A256E6139009E6C36 /* Debug */,
-				F3A6DE9B256E6139009E6C36 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		F3C5CB94253831900076C485 /* Build configuration list for PBXProject "App_Pressure-Calculator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
