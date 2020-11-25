@@ -14,10 +14,8 @@ class DiamondVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var MeasuredPeak: UITextField!
     @IBOutlet weak var resultP: UITextField!
     @IBOutlet weak var calcP: UIButton!
-
     @IBOutlet var NoteAnvil: UITextView!
     @IBOutlet var NoteDiamond: UITextView!
-    
     @IBOutlet weak var variationRaman: UISegmentedControl!
     
     // MARK: — Variables and Constants
@@ -32,22 +30,19 @@ class DiamondVC: UIViewController, UITextFieldDelegate {
         
         view.endEditing(true)
         
-        if (MeasuredPeak.text == "" || AmbientPressurePeak.text == "") {
-            if (variation == "DiamondAnvil"){
-                AmbientPressurePeak.text = "1334"
-                MeasuredPeak.text = "1334"} else {
-                    MeasuredPeak.text = "1333"
-                    AmbientPressurePeak.text = "1333"
-                }
+        if (MeasuredPeak.text == "" || AmbientPressurePeak.text == "")
+        {   if (variation == "DiamondAnvil")
+            {   AmbientPressurePeak.text = "1334"
+                MeasuredPeak.text = "1334"
+            } else {
+                MeasuredPeak.text = "1333"
+                AmbientPressurePeak.text = "1333"
             }
-
         }
+    }
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         AmbientPressurePeak.delegate = self
         MeasuredPeak.delegate = self
@@ -62,20 +57,20 @@ class DiamondVC: UIViewController, UITextFieldDelegate {
         
         selectingVariation(variationRaman)
 
-        
-        if let variation = UserDefaults.standard.value(forKey: "selectedVariation"){
+        if let variation = UserDefaults.standard.value(forKey: "selectedVariation")
+        {
             let selectedIndex = variation as! Int
             variationRaman.selectedSegmentIndex = selectedIndex
-            }
         }
+    }
     
     // MARK: - IBActions
     
-    @IBAction func selectingVariation(_ sender: UISegmentedControl) {
-        UserDefaults.standard.set(sender.selectedSegmentIndex, forKey: "selectedVariation")
+    @IBAction func selectingVariation(_ sender: UISegmentedControl)
+    {   UserDefaults.standard.set(sender.selectedSegmentIndex, forKey: "selectedVariation")
         
         if(variationRaman.selectedSegmentIndex == 0)
-        { let raman = UserDefaults.standard
+        {   let raman = UserDefaults.standard
             variation = "DiamondInside"
             AmbientPressurePeak.text = "1333"
             MeasuredPeak.text = "1333"
@@ -91,50 +86,57 @@ class DiamondVC: UIViewController, UITextFieldDelegate {
             NoteAnvil.isHidden = false
             NoteDiamond.isHidden = true
          }
-   }
+    }
+    
+    
+    @IBAction func refPeakChanged(_ sender: Any) {
+        calculatePressure((Any).self)
+    }
+    
+    @IBAction func gotPeakChanged(_ sender: Any) {
+        calculatePressure((Any).self)
+    }
+    
 
     @IBAction func calculatePressure(_ sender: Any) {
-        view.endEditing(true)
+        //view.endEditing(true)
 
         // Checking that numbers entered
         
         var dia0 = Double(AmbientPressurePeak.text!.doubleValue)
         var dia = Double(MeasuredPeak.text!.doubleValue)
         
-        
-        /*guard let dia0 = Double(AmbientPressurePeak.text!) else {
-            resultP.text = "Some value is missing"
-            return}
-        guard let dia = Double(MeasuredPeak.text!) else {
-            resultP.text = "Some value is missing"
-            return}*/
-        
-        
         // Checking that all the numbers are in allowed ranges
-        if (1200...2500).contains(dia0) {
-            print("everything is ok")} else {resultP.text = "Check your values"
-                return
+        if (1200...2500).contains(dia0)
+        {   print("everything is ok")
+        } else {
+            resultP.text = "Check your values"
+            return
         }
-        if (1200...2500).contains(dia0) {
-                print("everything is ok") } else {resultP.text = "Check your values"
-                    return
-            }
+        if (1200...2500).contains(dia0)
+        {
+            print("everything is ok")
+        } else {
+            resultP.text = "Check your values"
+            return
+        }
         
         // Calculating Pressure
-        if variation == "DiamondAnvil" {
-        let diK = 547.0
-        let diKp = 3.75
-        
-        let rat1 = (dia - dia0) / dia0
-        let part1 = diK * rat1
-        let part2 = 0.5 * (diKp - 1)
-        let part3 = 1 + (part2 * rat1)
-        let pressure = part1 * part3
-        let P = ((pressure * 100).rounded()) / 100
-        resultP.text = String(P)
-
-     }
-        if variation == "DiamondInside" {
+        if variation == "DiamondAnvil"
+        {
+            let diK = 547.0
+            let diKp = 3.75
+            
+            let rat1 = (dia - dia0) / dia0
+            let part1 = diK * rat1
+            let part2 = 0.5 * (diKp - 1)
+            let part3 = 1 + (part2 * rat1)
+            let pressure = part1 * part3
+            let P = ((pressure * 100).rounded()) / 100
+            resultP.text = String(P)
+        }
+        if variation == "DiamondInside"
+        {
             let a = -0.00275
             let b = 2.61
             let c = dia0 - dia
@@ -146,4 +148,5 @@ class DiamondVC: UIViewController, UITextFieldDelegate {
         }
     }
 }
+
 
