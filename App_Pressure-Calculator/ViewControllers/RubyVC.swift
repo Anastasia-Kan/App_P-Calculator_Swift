@@ -40,22 +40,30 @@ class RubyVC: UIViewController {
         calcP.layer.cornerRadius = 10
         calcP.clipsToBounds = true
         
+        /*gotRuby.addTarget(self, action: #selector(RubyVC.textFieldDidChange(_:)), for: .editingChanged)*/  //Continue here!!!
         if let selectedCalibration = UserDefaults.standard.value(forKey: "selectedCalibration"){
-                    let calibration = selectedCalibration as! Int
-                    calibrationSegments.selectedSegmentIndex = calibration
-                }
-        
-        if let refTempSelectedScale = UserDefaults.standard.value(forKey: "refTempSelectedScale"){
-            let refTScale = refTempSelectedScale as! Int
-                    refTempScale.selectedSegmentIndex = refTScale
-                }
-        
-        if let gotTempSelectedScale = UserDefaults.standard.value(forKey: "gotTempSelectedScale"){
-            let gotTScale = gotTempSelectedScale as! Int
-                    gotTempScale.selectedSegmentIndex = gotTScale
-                }
-        selectingCalibration(calibrationSegments)
-        }
+                     let calibration = selectedCalibration as! Int
+                     calibrationSegments.selectedSegmentIndex = calibration
+                 }
+         
+         if let refTempSelectedScale = UserDefaults.standard.value(forKey: "refTempSelectedScale"){
+             let refTScale = refTempSelectedScale as! Int
+                     refTempScale.selectedSegmentIndex = refTScale
+                 }
+         
+         if let gotTempSelectedScale = UserDefaults.standard.value(forKey: "gotTempSelectedScale"){
+             let gotTScale = gotTempSelectedScale as! Int
+                     gotTempScale.selectedSegmentIndex = gotTScale
+                 }
+         selectingCalibration(calibrationSegments)
+         
+
+    }
+    
+    // CHANGING text in TextField
+    @IBAction func gotTempChanged(_ sender: Any) {
+    }
+    
     
 
     // Input info: Excluding all caracters except for decimal NUMBERS

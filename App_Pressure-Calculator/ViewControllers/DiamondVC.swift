@@ -48,6 +48,7 @@ class DiamondVC: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         AmbientPressurePeak.delegate = self
         MeasuredPeak.delegate = self
         resultP.delegate = self
