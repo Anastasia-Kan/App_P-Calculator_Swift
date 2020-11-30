@@ -18,6 +18,8 @@ class DiamondVC: UIViewController, UITextFieldDelegate {
     @IBOutlet var NoteDiamond: UITextView!
     @IBOutlet weak var variationRaman: UISegmentedControl!
     
+    @IBOutlet weak var infoButton: UIButton!
+    
     // MARK: — Variables and Constants
     var variation = "DiamondInside"
     
@@ -54,6 +56,8 @@ class DiamondVC: UIViewController, UITextFieldDelegate {
         NoteAnvil.clipsToBounds = true
         NoteDiamond.layer.cornerRadius = 10
         NoteDiamond.clipsToBounds = true
+        infoButton.layer.cornerRadius = 10
+        infoButton.clipsToBounds = true
         
         selectingVariation(variationRaman)
 
@@ -77,6 +81,10 @@ class DiamondVC: UIViewController, UITextFieldDelegate {
     @objc func doneClicked()
     {
         view.endEditing(true)
+    }
+    
+    @IBAction func goToInfoDiamond(_ sender: Any) {
+        InfoDiamondVC()
     }
     
     // MARK: - IBActions

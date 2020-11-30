@@ -19,6 +19,8 @@ class RubyVC: UIViewController {
     @IBOutlet weak var refTempScale: UISegmentedControl!
     @IBOutlet weak var gotTempScale: UISegmentedControl!
     
+    @IBOutlet weak var infoButton: UIButton!
+    
     // MARK: — Variables and Constants
     var selectedCalibration = ""
     var refTScale = ""
@@ -36,6 +38,8 @@ class RubyVC: UIViewController {
         
         calcP.layer.cornerRadius = 10
         calcP.clipsToBounds = true
+        infoButton.layer.cornerRadius = 10
+        infoButton.clipsToBounds = true
 
         if let selectedCalibration = UserDefaults.standard.value(forKey: "selectedCalibration")
         {
@@ -70,6 +74,10 @@ class RubyVC: UIViewController {
     @objc func doneClicked()
     {
         view.endEditing(true)
+    }
+    
+    @IBAction func goToInfoRuby(_ sender: Any) {
+        InfoRubyVC()
     }
     
     // CHANGING text in TextField
