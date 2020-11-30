@@ -62,6 +62,21 @@ class DiamondVC: UIViewController, UITextFieldDelegate {
             let selectedIndex = variation as! Int
             variationRaman.selectedSegmentIndex = selectedIndex
         }
+        
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector (doneClicked))
+        toolbar.setItems([flexibleSpace, doneButton], animated: false)
+        
+        
+        AmbientPressurePeak.inputAccessoryView = toolbar
+        MeasuredPeak.inputAccessoryView = toolbar
+    }
+    
+    @objc func doneClicked()
+    {
+        view.endEditing(true)
     }
     
     // MARK: - IBActions
@@ -99,7 +114,6 @@ class DiamondVC: UIViewController, UITextFieldDelegate {
     
 
     @IBAction func calculatePressure(_ sender: Any) {
-        //view.endEditing(true)
 
         // Checking that numbers entered
         

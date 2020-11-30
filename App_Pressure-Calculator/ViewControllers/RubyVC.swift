@@ -15,7 +15,6 @@ class RubyVC: UIViewController {
     @IBOutlet weak var gotTemp: UITextField!
     @IBOutlet weak var calcP: UIButton!
     @IBOutlet weak var resultP: UITextField!
-
     @IBOutlet weak var calibrationSegments: UISegmentedControl!
     @IBOutlet weak var refTempScale: UISegmentedControl!
     @IBOutlet weak var gotTempScale: UISegmentedControl!
@@ -29,46 +28,61 @@ class RubyVC: UIViewController {
    
     override func viewDidLoad()
     {
-            super.viewDidLoad()
-            refRuby.delegate = self
-            refTemp.delegate = self
-            gotRuby.delegate = self
-            gotTemp.delegate = self
-            
-            calcP.layer.cornerRadius = 10
-            calcP.clipsToBounds = true
+        super.viewDidLoad()
+        refRuby.delegate = self
+        refTemp.delegate = self
+        gotRuby.delegate = self
+        gotTemp.delegate = self
+        
+        calcP.layer.cornerRadius = 10
+        calcP.clipsToBounds = true
 
-            if let selectedCalibration = UserDefaults.standard.value(forKey: "selectedCalibration")
-            {
-                let calibration = selectedCalibration as! Int
-                calibrationSegments.selectedSegmentIndex = calibration
-            }
-             
-            if let refTempSelectedScale = UserDefaults.standard.value(forKey: "refTempSelectedScale")
-            {
-                let refTScale = refTempSelectedScale as! Int
-                refTempScale.selectedSegmentIndex = refTScale
-            }
-             
-            if let gotTempSelectedScale = UserDefaults.standard.value(forKey: "gotTempSelectedScale")
-            {
-                let gotTScale = gotTempSelectedScale as! Int
-                gotTempScale.selectedSegmentIndex = gotTScale
-            }
-             selectingCalibration(calibrationSegments)
+        if let selectedCalibration = UserDefaults.standard.value(forKey: "selectedCalibration")
+        {
+            let calibration = selectedCalibration as! Int
+            calibrationSegments.selectedSegmentIndex = calibration
+        }
+         
+        if let refTempSelectedScale = UserDefaults.standard.value(forKey: "refTempSelectedScale")
+        {
+            let refTScale = refTempSelectedScale as! Int
+            refTempScale.selectedSegmentIndex = refTScale
+        }
+         
+        if let gotTempSelectedScale = UserDefaults.standard.value(forKey: "gotTempSelectedScale")
+        {
+            let gotTScale = gotTempSelectedScale as! Int
+            gotTempScale.selectedSegmentIndex = gotTScale
+        }
+         selectingCalibration(calibrationSegments)
+        
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector (doneClicked))
+        toolbar.setItems([flexibleSpace, doneButton], animated: false)
+        refRuby.inputAccessoryView = toolbar
+        gotRuby.inputAccessoryView = toolbar
+        refTemp.inputAccessoryView = toolbar
+        gotTemp.inputAccessoryView = toolbar
+    }
+    
+    @objc func doneClicked()
+    {
+        view.endEditing(true)
     }
     
     // CHANGING text in TextField
     @IBAction func gotTempChanged(_ sender: Any) {
-            calculateP((Any).self)
+        calculateP((Any).self)
     }
         
     @IBAction func gotRubyChanged(_ sender: Any) {
-            calculateP((Any).self)
+        calculateP((Any).self)
     }
         
     @IBAction func refTempChanged(_ sender: Any) {
-            calculateP((Any).self)
+        calculateP((Any).self)
     }
     
 
@@ -79,7 +93,6 @@ class RubyVC: UIViewController {
         return (string.rangeOfCharacter(from: invalidCaracters) == nil)
     }
     
-   // To dismiss Keybord
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
         view.endEditing(true)
@@ -310,38 +323,3 @@ extension String
         return 0
     }
 }
-
-extension UITextField{
-    
-    @IBInspectable var doneAccessory: Bool{
-        get{
-            return self.doneAccessory
-        }
-        set (hasDone) {
-            if hasDone{
-                addDoneButtonOnKeyboard()
-            }
-        }
-    }
-    
-    func addDoneButtonOnKeyboard()
-    {
-        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
-        doneToolbar.barStyle = .default
-        
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneButtonAction))
-        
-        let items = [flexSpace, done]
-        doneToolbar.items = items
-        doneToolbar.sizeToFit()
-        
-        self.inputAccessoryView = doneToolbar
-    }
-    
-    @objc func doneButtonAction()
-    {
-        self.resignFirstResponder()
-    }
-}
-

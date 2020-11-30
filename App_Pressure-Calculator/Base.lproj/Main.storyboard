@@ -210,7 +210,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aRy-y6-bsH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2536" y="595"/>
+            <point key="canvasLocation" x="-2536" y="625"/>
         </scene>
         <!--RUBY-->
         <scene sceneID="mV9-MX-tcS">
@@ -269,7 +269,7 @@
                                 </constraints>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <action selector="calculateP:" destination="pN9-rw-bsd" eventType="valueChanged" id="M3m-RC-ehp"/>
                                     <action selector="gotRubyChanged:" destination="pN9-rw-bsd" eventType="editingChanged" id="vLk-WP-GAp"/>
@@ -463,7 +463,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wKr-G0-2OT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2212" y="-78"/>
+            <point key="canvasLocation" x="-2536" y="-137"/>
         </scene>
     </scenes>
     <resources>
