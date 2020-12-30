@@ -71,11 +71,34 @@ class RubyVC: UIViewController {
         gotRuby.inputAccessoryView = toolbar
         refTemp.inputAccessoryView = toolbar
         gotTemp.inputAccessoryView = toolbar
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeGesture))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
+
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeGesture))
+        swipeLeft.direction = .left
+        self.view.addGestureRecognizer(swipeLeft)
+        
     }
     
     @objc func doneClicked()
     {
         view.endEditing(true)
+    }
+    
+    @objc func handleSwipeGesture(_ gesture: UISwipeGestureRecognizer) {
+      guard let tabBarController = tabBarController, let viewControllers = tabBarController.viewControllers else { return }
+      let tabs = viewControllers.count
+      if gesture.direction == .left {
+          if (tabBarController.selectedIndex) < tabs {
+              tabBarController.selectedIndex += 1
+          }
+      } else if gesture.direction == .right {
+          if (tabBarController.selectedIndex) > 0 {
+              tabBarController.selectedIndex -= 1
+          }
+      }
     }
    
     
