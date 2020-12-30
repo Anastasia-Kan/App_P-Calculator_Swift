@@ -58,6 +58,12 @@ class DiamondVC: UIViewController, UITextFieldDelegate {
         NoteDiamond.clipsToBounds = true
         infoDia.layer.cornerRadius = 10
         infoDia.clipsToBounds = true
+        resultP.layer.cornerRadius = 10
+        resultP.clipsToBounds = true
+        AmbientPressurePeak.layer.cornerRadius = 10
+        AmbientPressurePeak.clipsToBounds = true
+        MeasuredPeak.layer.cornerRadius = 10
+        MeasuredPeak.clipsToBounds = true
         
         
         selectingVariation(variationRaman)

@@ -41,6 +41,21 @@ class RubyVC: UIViewController {
         
         infoRuby.layer.cornerRadius = 10
         infoRuby.clipsToBounds = true
+        
+        refRuby.layer.cornerRadius = 10
+        refRuby.clipsToBounds = true
+        
+        refTemp.layer.cornerRadius = 10
+        refTemp.clipsToBounds = true
+        
+        gotRuby.layer.cornerRadius = 10
+        gotRuby.clipsToBounds = true
+        
+        gotTemp.layer.cornerRadius = 10
+        gotTemp.clipsToBounds = true
+        
+        resultP.layer.cornerRadius = 10
+        resultP.clipsToBounds = true
 
 
         if let selectedCalibration = UserDefaults.standard.value(forKey: "selectedCalibration")
