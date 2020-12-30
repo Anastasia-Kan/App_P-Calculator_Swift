@@ -18,9 +18,9 @@ class RubyVC: UIViewController {
     @IBOutlet weak var calibrationSegments: UISegmentedControl!
     @IBOutlet weak var refTempScale: UISegmentedControl!
     @IBOutlet weak var gotTempScale: UISegmentedControl!
+    @IBOutlet weak var infoRuby: UIButton!
     
-    @IBOutlet weak var infoButton: UIButton!
-    
+
     // MARK: — Variables and Constants
     var selectedCalibration = ""
     var refTScale = ""
@@ -38,8 +38,10 @@ class RubyVC: UIViewController {
         
         calcP.layer.cornerRadius = 10
         calcP.clipsToBounds = true
-        infoButton.layer.cornerRadius = 10
-        infoButton.clipsToBounds = true
+        
+        infoRuby.layer.cornerRadius = 10
+        infoRuby.clipsToBounds = true
+
 
         if let selectedCalibration = UserDefaults.standard.value(forKey: "selectedCalibration")
         {
@@ -75,12 +77,9 @@ class RubyVC: UIViewController {
     {
         view.endEditing(true)
     }
+   
     
-    @IBAction func goToInfoRuby(_ sender: Any) {
-        InfoRubyVC()
-    }
-    
-    // CHANGING text in TextField
+    // CHANGING text in TextField -> Calculate Pressure while entering data
     @IBAction func gotTempChanged(_ sender: Any) {
         calculateP((Any).self)
     }

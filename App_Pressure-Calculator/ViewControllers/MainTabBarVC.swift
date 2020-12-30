@@ -8,16 +8,19 @@
 import Foundation
 import UIKit
 
-class MainTabBarVC: UITabBarController, UITabBarControllerDelegate {
+class MainTabBarVC: UITabBarController, UITabBarControllerDelegate
+{
     
     let selectedTabIndexKey = "selectedTabIndex"
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         self.delegate = self
 
         // Load the last selected tab if the key exists in the UserDefaults
-        if UserDefaults.standard.object(forKey: self.selectedTabIndexKey) != nil {
+        if UserDefaults.standard.object(forKey: self.selectedTabIndexKey) != nil
+        {
             self.selectedIndex = UserDefaults.standard.integer(forKey: self.selectedTabIndexKey)
         }
     }

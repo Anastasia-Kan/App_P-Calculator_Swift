@@ -70,9 +70,9 @@
 		F3BBAAC42551628100E74F16 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F3BBAB232559637B00E74F16 /* MainTabBarVC.swift */,
 				F3C5CBB1253832FC0076C485 /* RubyVC.swift */,
 				F3C5CBB42538332A0076C485 /* DiamondVC.swift */,
-				F3BBAB232559637B00E74F16 /* MainTabBarVC.swift */,
 				F3EDC2BE25750A4000A57541 /* InfoRubyVC.swift */,
 				F3EDC2C125750A5A00A57541 /* InfoDiamondVC.swift */,
 			);
