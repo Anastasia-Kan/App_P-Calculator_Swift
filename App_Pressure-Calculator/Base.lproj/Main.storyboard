@@ -45,7 +45,7 @@
                                 </accessibility>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="1333" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qiC-1x-C9G">
-                                <rect key="frame" x="254" y="204" width="140" height="40"/>
+                                <rect key="frame" x="254" y="224" width="140" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="ON4-R3-GCs"/>
@@ -59,7 +59,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1333" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="807-FT-o2o">
-                                <rect key="frame" x="254" y="284" width="140" height="40"/>
+                                <rect key="frame" x="254" y="304" width="140" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="BBC-FK-mik"/>
@@ -73,7 +73,7 @@
                                 </connections>
                             </textField>
                             <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" text="Ambient pressure diamond peak (cm-1)" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4p-Z7-5px">
-                                <rect key="frame" x="20" y="194" width="224" height="80"/>
+                                <rect key="frame" x="20" y="214" width="224" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="Acv-7r-aC4"/>
                                 </constraints>
@@ -82,7 +82,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Measured position (cm-1)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1e-Gn-7ke">
-                                <rect key="frame" x="20" y="274" width="224" height="80"/>
+                                <rect key="frame" x="20" y="294" width="224" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="955-fE-hWP"/>
                                 </constraints>
@@ -91,7 +91,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdd-yG-hWz">
-                                <rect key="frame" x="20" y="464" width="374" height="40"/>
+                                <rect key="frame" x="20" y="484" width="374" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="dUu-re-sx6"/>
@@ -105,7 +105,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pressure (GPa)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D4Z-KR-iiG">
-                                <rect key="frame" x="30" y="364" width="210" height="60"/>
+                                <rect key="frame" x="30" y="384" width="210" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Ffn-yE-91Q"/>
                                     <constraint firstAttribute="width" constant="210" id="nWY-zg-UyU"/>
@@ -115,7 +115,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GyF-XG-ma7">
-                                <rect key="frame" x="254" y="374" width="140" height="40"/>
+                                <rect key="frame" x="254" y="394" width="140" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ZLf-rD-YvG"/>
@@ -140,11 +140,11 @@
                                     <action selector="selectingVariation:" destination="grF-lX-3HB" eventType="valueChanged" id="Woa-a3-wXv"/>
                                 </connections>
                             </segmentedControl>
-                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" text="Raman signal should be measured at the center of culet. The &quot;measured position&quot; is the minimum of the Raman signal derivative" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2N0-wL-1dA">
-                                <rect key="frame" x="20" y="124" width="374" height="65"/>
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" text="Raman signal should be measured at the center of culet. The &quot;measured position&quot; is the minimum of the Raman signal derivative." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2N0-wL-1dA">
+                                <rect key="frame" x="20" y="124" width="374" height="80"/>
                                 <color key="backgroundColor" red="1" green="0.83754597919999996" blue="0.68603175179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="3tQ-pU-Vf4"/>
+                                    <constraint firstAttribute="height" constant="80" id="3tQ-pU-Vf4"/>
                                 </constraints>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
@@ -204,8 +204,8 @@
                             <constraint firstItem="XJ7-VL-DDo" firstAttribute="trailing" secondItem="Ja3-VQ-mZk" secondAttribute="trailing" constant="20" id="pd1-kS-dAu"/>
                             <constraint firstItem="GyF-XG-ma7" firstAttribute="leading" secondItem="D4Z-KR-iiG" secondAttribute="trailing" constant="14" id="tHz-l5-qmH"/>
                             <constraint firstItem="i1e-Gn-7ke" firstAttribute="top" secondItem="L4p-Z7-5px" secondAttribute="bottom" id="vYP-1w-6PN"/>
-                            <constraint firstItem="qiC-1x-C9G" firstAttribute="top" secondItem="XJ7-VL-DDo" secondAttribute="top" constant="160" id="wDK-rd-YzL"/>
-                            <constraint firstItem="L4p-Z7-5px" firstAttribute="top" secondItem="XJ7-VL-DDo" secondAttribute="top" constant="150" id="wRz-Qh-JPU"/>
+                            <constraint firstItem="qiC-1x-C9G" firstAttribute="top" secondItem="XJ7-VL-DDo" secondAttribute="top" constant="180" id="wDK-rd-YzL"/>
+                            <constraint firstItem="L4p-Z7-5px" firstAttribute="top" secondItem="XJ7-VL-DDo" secondAttribute="top" constant="170" id="wRz-Qh-JPU"/>
                             <constraint firstItem="iKS-uX-MrN" firstAttribute="leading" secondItem="XJ7-VL-DDo" secondAttribute="leading" constant="20" id="y7s-t9-hxw"/>
                             <constraint firstItem="2N0-wL-1dA" firstAttribute="top" secondItem="XJ7-VL-DDo" secondAttribute="top" constant="80" id="yFv-xz-Ocz"/>
                             <constraint firstItem="XJ7-VL-DDo" firstAttribute="trailing" secondItem="pdd-yG-hWz" secondAttribute="trailing" constant="20" id="ybL-ST-12I"/>
@@ -240,10 +240,45 @@
                     <view key="view" contentMode="scaleToFill" id="yWE-jh-3zl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WiG-rp-0fA">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VPk-fW-z3c">
+                                        <rect key="frame" x="10" y="20" width="394" height="400"/>
+                                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="400" id="mSh-Wl-UE3"/>
+                                        </constraints>
+                                        <string key="text">Calibration for Diamond anvil Raman comes from: 
+
+Akahama Y. and Kawamura H., J. Appl. Phys. 100, 043516 (2006).
+
+Calibration for Diamond Raman is taken from: 
+
+Dubrovinskaia N. et al., Appl. Phys. Lett. 97, 251903 (2010).</string>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                <constraints>
+                                    <constraint firstItem="VPk-fW-z3c" firstAttribute="leading" secondItem="WiG-rp-0fA" secondAttribute="leading" constant="10" id="D5Z-3G-APZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="VPk-fW-z3c" secondAttribute="trailing" constant="10" id="IUA-Fk-g4J"/>
+                                    <constraint firstItem="VPk-fW-z3c" firstAttribute="top" secondItem="WiG-rp-0fA" secondAttribute="top" constant="20" id="yLB-yH-dOg"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="07g-dF-lyF"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="07g-dF-lyF" firstAttribute="trailing" secondItem="WiG-rp-0fA" secondAttribute="trailing" id="NeY-8n-Qap"/>
+                            <constraint firstItem="WiG-rp-0fA" firstAttribute="leading" secondItem="07g-dF-lyF" secondAttribute="leading" id="UjO-uQ-V2P"/>
+                            <constraint firstItem="07g-dF-lyF" firstAttribute="bottom" secondItem="WiG-rp-0fA" secondAttribute="bottom" id="dYR-km-0ww"/>
+                            <constraint firstItem="WiG-rp-0fA" firstAttribute="top" secondItem="07g-dF-lyF" secondAttribute="top" id="jcT-2A-a2F"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="2ad-i7-GRW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m0e-my-jJK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -533,34 +568,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Y2-B9-fqa">
-                                <rect key="frame" x="0.0" y="60" width="414" height="748"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="788"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Some info" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JeM-t3-bXS">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JeM-t3-bXS">
+                                        <rect key="frame" x="10" y="20" width="394" height="600"/>
+                                        <color key="backgroundColor" systemColor="systemGray3Color"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="250" id="k9h-Uf-Gok"/>
+                                            <constraint firstAttribute="height" constant="600" id="k9h-Uf-Gok"/>
                                         </constraints>
+                                        <string key="text">Pressure dependence of ruby shift is taken from:
+
+Shen G., Wang Y., Dewaele A. et al. (2020) High Pres. Res. doi: 10.1080/08957959.2020.1791107
+
+Mao H.K., Xu J., and Bell P.M. (1986) J. Geophys. Res. 91, 4673
+
+
+Temperature correction comes from:
+
+Datchi F., Dewaele A., Loubeyre P., et al. (2007) High Press. Res. 27, No 4, 447-463</string>
                                         <color key="textColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                <color key="backgroundColor" systemColor="systemGray3Color"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="JeM-t3-bXS" firstAttribute="top" secondItem="6Y2-B9-fqa" secondAttribute="top" id="24u-BV-o93"/>
-                                    <constraint firstAttribute="trailing" secondItem="JeM-t3-bXS" secondAttribute="trailing" id="Rmf-dd-jcg"/>
-                                    <constraint firstItem="JeM-t3-bXS" firstAttribute="leading" secondItem="6Y2-B9-fqa" secondAttribute="leading" id="XGq-tU-wz7"/>
+                                    <constraint firstAttribute="trailing" secondItem="JeM-t3-bXS" secondAttribute="trailing" constant="10" id="Rmf-dd-jcg"/>
+                                    <constraint firstItem="JeM-t3-bXS" firstAttribute="leading" secondItem="6Y2-B9-fqa" secondAttribute="leading" constant="10" id="XGq-tU-wz7"/>
+                                    <constraint firstItem="JeM-t3-bXS" firstAttribute="top" secondItem="6Y2-B9-fqa" secondAttribute="top" constant="20" id="YoN-FH-xe3"/>
                                 </constraints>
                             </view>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kzC-0V-1xM">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Title" id="5M8-Rc-Kv1"/>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ecC-B3-Fj4"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -568,7 +606,7 @@
                             <constraint firstItem="ecC-B3-Fj4" firstAttribute="bottom" secondItem="6Y2-B9-fqa" secondAttribute="bottom" id="0s7-Gu-CMg"/>
                             <constraint firstItem="ecC-B3-Fj4" firstAttribute="trailing" secondItem="6Y2-B9-fqa" secondAttribute="trailing" id="59Z-qV-tbl"/>
                             <constraint firstItem="6Y2-B9-fqa" firstAttribute="leading" secondItem="ecC-B3-Fj4" secondAttribute="leading" id="e1A-Oi-XVr"/>
-                            <constraint firstItem="6Y2-B9-fqa" firstAttribute="top" secondItem="ecC-B3-Fj4" secondAttribute="top" constant="60" id="vau-dt-caN"/>
+                            <constraint firstItem="6Y2-B9-fqa" firstAttribute="top" secondItem="ecC-B3-Fj4" secondAttribute="top" constant="20" id="vau-dt-caN"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -589,9 +627,6 @@
         </systemColor>
         <systemColor name="systemGray3Color">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
