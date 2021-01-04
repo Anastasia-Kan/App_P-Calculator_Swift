@@ -58,12 +58,14 @@ class DiamondVC: UIViewController, UITextFieldDelegate {
         NoteDiamond.clipsToBounds = true
         infoDia.layer.cornerRadius = 10
         infoDia.clipsToBounds = true
-        resultP.layer.cornerRadius = 10
+        
+        
+        /*resultP.layer.cornerRadius = 10
         resultP.clipsToBounds = true
         AmbientPressurePeak.layer.cornerRadius = 10
         AmbientPressurePeak.clipsToBounds = true
         MeasuredPeak.layer.cornerRadius = 10
-        MeasuredPeak.clipsToBounds = true
+        MeasuredPeak.clipsToBounds = true*/
         
         
         selectingVariation(variationRaman)
@@ -88,9 +90,6 @@ class DiamondVC: UIViewController, UITextFieldDelegate {
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
 
-        /*let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeGesture))
-        swipeLeft.direction = .left
-        self.view.addGestureRecognizer(swipeLeft)*/
     }
     
     @objc func doneClicked()

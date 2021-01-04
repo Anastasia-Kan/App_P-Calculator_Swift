@@ -41,22 +41,6 @@ class RubyVC: UIViewController {
         
         infoRuby.layer.cornerRadius = 10
         infoRuby.clipsToBounds = true
-        
-        refRuby.layer.cornerRadius = 10
-        refRuby.clipsToBounds = true
-        
-        refTemp.layer.cornerRadius = 10
-        refTemp.clipsToBounds = true
-        
-        gotRuby.layer.cornerRadius = 10
-        gotRuby.clipsToBounds = true
-        
-        gotTemp.layer.cornerRadius = 10
-        gotTemp.clipsToBounds = true
-        
-        resultP.layer.cornerRadius = 10
-        resultP.clipsToBounds = true
-
 
         if let selectedCalibration = UserDefaults.standard.value(forKey: "selectedCalibration")
         {
@@ -87,10 +71,6 @@ class RubyVC: UIViewController {
         gotRuby.inputAccessoryView = toolbar
         refTemp.inputAccessoryView = toolbar
         gotTemp.inputAccessoryView = toolbar
-        
-        /*let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeGesture))
-        swipeRight.direction = .right
-        self.view.addGestureRecognizer(swipeRight)*/
 
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeGesture))
         swipeLeft.direction = .left
@@ -372,23 +352,3 @@ extension String
     }
 }
 
-extension UITabBarController {
-    func leftToRightAnimation(duration: TimeInterval = 0.5, completionDelegate: AnyObject? = nil) {
-        // Create a CATransition object
-        let leftToRightTransition = CATransition()
-        
-        // Set its callback delegate to the completionDelegate that was provided
-        if let delegate: AnyObject = completionDelegate {
-            leftToRightTransition.delegate = delegate as! CAAnimationDelegate
-        }
-        
-        leftToRightTransition.type = CATransitionType.push
-        leftToRightTransition.subtype = CATransitionSubtype.fromRight
-        leftToRightTransition.duration = duration
-        leftToRightTransition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        leftToRightTransition.fillMode = CAMediaTimingFillMode.removed
-        
-        // Add the animation to the View's layer
-        //self. //layer.add(leftToRightTransition, forKey: "leftToRightTransition")
-    }
-}
