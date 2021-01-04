@@ -88,9 +88,9 @@ class DiamondVC: UIViewController, UITextFieldDelegate {
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
 
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeGesture))
+        /*let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeGesture))
         swipeLeft.direction = .left
-        self.view.addGestureRecognizer(swipeLeft)
+        self.view.addGestureRecognizer(swipeLeft)*/
     }
     
     @objc func doneClicked()

@@ -75,7 +75,8 @@ class RubyVC: UIViewController {
             let gotTScale = gotTempSelectedScale as! Int
             gotTempScale.selectedSegmentIndex = gotTScale
         }
-         selectingCalibration(calibrationSegments)
+        
+        selectingCalibration(calibrationSegments)
         
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
@@ -87,9 +88,9 @@ class RubyVC: UIViewController {
         refTemp.inputAccessoryView = toolbar
         gotTemp.inputAccessoryView = toolbar
         
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeGesture))
+        /*let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeGesture))
         swipeRight.direction = .right
-        self.view.addGestureRecognizer(swipeRight)
+        self.view.addGestureRecognizer(swipeRight)*/
 
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeGesture))
         swipeLeft.direction = .left
@@ -106,8 +107,10 @@ class RubyVC: UIViewController {
       guard let tabBarController = tabBarController, let viewControllers = tabBarController.viewControllers else { return }
       let tabs = viewControllers.count
       if gesture.direction == .left {
-          if (tabBarController.selectedIndex) < tabs {
-              tabBarController.selectedIndex += 1
+        
+        if (tabBarController.selectedIndex) < tabs {
+            
+            tabBarController.selectedIndex += 1
           }
       } else if gesture.direction == .right {
           if (tabBarController.selectedIndex) > 0 {
@@ -366,5 +369,26 @@ extension String
             }
         }
         return 0
+    }
+}
+
+extension UITabBarController {
+    func leftToRightAnimation(duration: TimeInterval = 0.5, completionDelegate: AnyObject? = nil) {
+        // Create a CATransition object
+        let leftToRightTransition = CATransition()
+        
+        // Set its callback delegate to the completionDelegate that was provided
+        if let delegate: AnyObject = completionDelegate {
+            leftToRightTransition.delegate = delegate as! CAAnimationDelegate
+        }
+        
+        leftToRightTransition.type = CATransitionType.push
+        leftToRightTransition.subtype = CATransitionSubtype.fromRight
+        leftToRightTransition.duration = duration
+        leftToRightTransition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        leftToRightTransition.fillMode = CAMediaTimingFillMode.removed
+        
+        // Add the animation to the View's layer
+        //self. //layer.add(leftToRightTransition, forKey: "leftToRightTransition")
     }
 }
